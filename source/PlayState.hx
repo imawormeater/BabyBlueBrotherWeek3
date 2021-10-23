@@ -104,8 +104,10 @@ class PlayState extends MusicBeatState
 	private var vocals:FlxSound;
 
 	public static var dad:Character;
+	public static var dadAgain:Character;
 	public static var gf:Character;
 	public static var boyfriend:Boyfriend;
+	public static var boyfriendAgain:Boyfriend;
 
 	public var notes:FlxTypedGroup<Note>;
 	private var unspawnNotes:Array<Note> = [];
@@ -215,6 +217,8 @@ class PlayState extends MusicBeatState
 	
 	public function addObject(object:FlxBasic) { add(object); }
 	public function removeObject(object:FlxBasic) { remove(object); }
+	var dadAgainSinging:Bool = false;
+	var boyfriendAgainSinging:Bool = false;
 
 
 	override public function create()
@@ -794,6 +798,7 @@ class PlayState extends MusicBeatState
 		gf.scrollFactor.set(0.95, 0.95);
 
 		dad = new Character(100, 100, SONG.player2);
+		dadAgain = new Character(100, 100, SONG.player2);
 
 		var camPos:FlxPoint = new FlxPoint(dad.getGraphicMidpoint().x, dad.getGraphicMidpoint().y);
 
@@ -1154,6 +1159,12 @@ class PlayState extends MusicBeatState
 					funnyIntro(doof);
 				case 'trackstar':
 					funnyIntro(doof);
+				case 'kitty':
+					dadAgain.x = -200;
+					dadAgain.y = 150;
+					dadAgain = new Character(dadAgain.x, dadAgain.y, 'bob');
+					add(dadAgain);
+					startCountdown();
 				default:
 					startCountdown();
 			}
@@ -1162,6 +1173,11 @@ class PlayState extends MusicBeatState
 		{
 			switch (curSong.toLowerCase())
 			{
+				case 'kitty':
+					dadAgain.x = -200;
+					dadAgain.y = 150;
+					dadAgain = new Character(dadAgain.x, dadAgain.y, 'bob');
+					add(dadAgain);
 				default:
 					startCountdown();
 			}
@@ -2269,6 +2285,14 @@ class PlayState extends MusicBeatState
 
 		FlxG.watch.addQuick("beatShit", curBeat);
 		FlxG.watch.addQuick("stepShit", curStep);
+		FlxG.watch.addQuick("DAD X", dad.x);
+		FlxG.watch.addQuick("DAD Y", dad.y);
+		FlxG.watch.addQuick("DAD BUT AGAIN X", dadAgain.x);
+		FlxG.watch.addQuick("DAD BUT AGAIN Y", dadAgain.y);
+		FlxG.watch.addQuick("BF X", boyfriend.x);
+		FlxG.watch.addQuick("BF Y", boyfriend.y);
+		FlxG.watch.addQuick("BF BUT AGAIN X", boyfriendAgain.x);
+		FlxG.watch.addQuick("BF BUT AGAIN Y", boyfriendAgain.y);
 
 		if (curSong == 'Fresh')
 		{
@@ -2460,12 +2484,20 @@ class PlayState extends MusicBeatState
 						{
 							case 2:
 								dad.playAnim('singUP' + altAnim, true);
+								if (dadAgainSinging)
+									dadAgain.playAnim('singUP' + altAnim, true);
 							case 3:
 								dad.playAnim('singRIGHT' + altAnim, true);
+								if (dadAgainSinging)
+									dadAgain.playAnim('singRIGHT' + altAnim, true);
 							case 1:
 								dad.playAnim('singDOWN' + altAnim, true);
+								if (dadAgainSinging)
+									dadAgain.playAnim('singDOWN' + altAnim, true);
 							case 0:
 								dad.playAnim('singLEFT' + altAnim, true);
+								if (dadAgainSinging)
+									dadAgain.playAnim('singLEFT' + altAnim, true);
 						}
 						
 						if (FlxG.save.data.cpuStrums)
