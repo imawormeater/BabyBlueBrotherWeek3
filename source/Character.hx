@@ -490,6 +490,19 @@ class Character extends FlxSprite
 				addOffset("singDOWN", 0, -30);
 	
 				playAnim('idle');
+			case 'bob':
+				tex = Paths.getSparrowAtlas('characters/bob_asset', 'shared');
+				frames = tex;
+				animation.addByPrefix('idle', "bob_idle", 24, false);
+				animation.addByPrefix('singUP', 'bob_UP', 24, false);
+				animation.addByPrefix('singDOWN', 'bob_DOWN', 24, false);
+				animation.addByPrefix('singLEFT', 'bob_LEFT', 24, false);
+				animation.addByPrefix('singRIGHT', 'bob_RIGHT', 24, false);
+
+				addOffset('idle');
+
+				flipX = true;
+
 			case 'bf':
 				var tex = Paths.getSparrowAtlas('characters/BOYFRIEND', 'shared');
 				frames = tex;
