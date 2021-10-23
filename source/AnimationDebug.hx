@@ -191,5 +191,10 @@ class AnimationDebug extends FlxState
 		}
 
 		super.update(elapsed);
+		
+		if(FlxG.keys.pressed.ENTER)
+			{
+				FlxG.switchState(new StoryMenuState());
+			}
 	}
 }
