@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="brokencrib.png">
+	<!-- Created with Adobe Animate version 19.2.0.405 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="brokenhouse0000" x="10" y="10" width="1904" height="1361"/>
+	<SubTexture name="brokenhouse0001" x="1924" y="10" width="1904" height="1361"/>
+	<SubTexture name="brokenhouse0002" x="10" y="1381" width="1904" height="1361"/>
+	<SubTexture name="brokenhouse0003" x="1924" y="1381" width="1904" height="1361"/>
+	<SubTexture name="brokenhouse0004" x="10" y="2752" width="1904" height="1361"/>
+	<SubTexture name="brokenhouse0005" x="1924" y="2752" width="1904" height="1361"/>
+	<SubTexture name="brokenhouse0006" x="10" y="4123" width="1904" height="1361"/>
+	<SubTexture name="brokenhouse0007" x="1924" y="4123" width="1904" height="1361"/>
+	<SubTexture name="brokenhouse0008" x="10" y="5494" width="1904" height="1361"/>
+</TextureAtlas>

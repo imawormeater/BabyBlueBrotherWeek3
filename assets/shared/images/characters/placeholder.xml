@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="placeholder.png">
+	<!-- Created with Adobe Animate version 19.2.0.405 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="baby0000" x="10" y="10" width="279" height="312" frameX="0" frameY="-18" frameWidth="279" frameHeight="330"/>
+	<SubTexture name="baby0001" x="10" y="10" width="279" height="312" frameX="0" frameY="-18" frameWidth="279" frameHeight="330"/>
+	<SubTexture name="baby0002" x="299" y="10" width="276" height="321" frameX="-2" frameY="-8" frameWidth="279" frameHeight="330"/>
+	<SubTexture name="baby0003" x="299" y="10" width="276" height="321" frameX="-2" frameY="-8" frameWidth="279" frameHeight="330"/>
+	<SubTexture name="baby0004" x="585" y="10" width="274" height="325" frameX="-3" frameY="-4" frameWidth="279" frameHeight="330"/>
+	<SubTexture name="baby0005" x="585" y="10" width="274" height="325" frameX="-3" frameY="-4" frameWidth="279" frameHeight="330"/>
+	<SubTexture name="baby0006" x="10" y="345" width="274" height="328" frameX="-3" frameY="-1" frameWidth="279" frameHeight="330"/>
+	<SubTexture name="baby0007" x="10" y="345" width="274" height="328" frameX="-3" frameY="-1" frameWidth="279" frameHeight="330"/>
+	<SubTexture name="baby0008" x="294" y="345" width="274" height="329" frameX="-3" frameY="0" frameWidth="279" frameHeight="330"/>
+	<SubTexture name="baby0009" x="294" y="345" width="274" height="329" frameX="-3" frameY="0" frameWidth="279" frameHeight="330"/>
+	<SubTexture name="baby0010" x="578" y="345" width="274" height="329" frameX="-3" frameY="0" frameWidth="279" frameHeight="330"/>
+	<SubTexture name="baby0011" x="578" y="345" width="274" height="329" frameX="-3" frameY="0" frameWidth="279" frameHeight="330"/>
+	<SubTexture name="baby0012" x="294" y="345" width="274" height="329" frameX="-3" frameY="0" frameWidth="279" frameHeight="330"/>
+	<SubTexture name="baby0013" x="294" y="345" width="274" height="329" frameX="-3" frameY="0" frameWidth="279" frameHeight="330"/>
+</TextureAtlas>

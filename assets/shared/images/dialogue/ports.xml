@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="ports.png">
+	<!-- Created with Adobe Animate version 19.2.0.405 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="baby port0000" x="10" y="10" width="267" height="241"/>
+	<SubTexture name="boyfriend port0000" x="287" y="10" width="311" height="236"/>
+	<SubTexture name="evil baby port0000" x="608" y="10" width="279" height="239"/>
+	<SubTexture name="goblin port0000" x="10" y="261" width="286" height="237"/>
+	<SubTexture name="lol port0000" x="306" y="261" width="280" height="236"/>
+</TextureAtlas>

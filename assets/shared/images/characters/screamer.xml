@@ -1,0 +1,96 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="screamer.png">
+	<!-- Created with Adobe Animate version 19.2.0.405 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="screamer idle0000" x="10" y="10" width="322" height="182" frameX="0" frameY="-54" frameWidth="322" frameHeight="236"/>
+	<SubTexture name="screamer idle0001" x="342" y="10" width="322" height="190" frameX="0" frameY="-46" frameWidth="322" frameHeight="236"/>
+	<SubTexture name="screamer idle0002" x="674" y="10" width="322" height="197" frameX="0" frameY="-39" frameWidth="322" frameHeight="236"/>
+	<SubTexture name="screamer idle0003" x="1006" y="10" width="322" height="205" frameX="0" frameY="-31" frameWidth="322" frameHeight="236"/>
+	<SubTexture name="screamer idle0004" x="1338" y="10" width="322" height="213" frameX="0" frameY="-23" frameWidth="322" frameHeight="236"/>
+	<SubTexture name="screamer idle0005" x="1670" y="10" width="322" height="220" frameX="0" frameY="-16" frameWidth="322" frameHeight="236"/>
+	<SubTexture name="screamer idle0006" x="10" y="240" width="322" height="228" frameX="0" frameY="-8" frameWidth="322" frameHeight="236"/>
+	<SubTexture name="screamer idle0007" x="342" y="240" width="322" height="236"/>
+	<SubTexture name="screamer idle0008" x="342" y="240" width="322" height="236"/>
+	<SubTexture name="screamer idle0009" x="342" y="240" width="322" height="236"/>
+	<SubTexture name="screamer idle0010" x="342" y="240" width="322" height="236"/>
+	<SubTexture name="screamer idle0011" x="342" y="240" width="322" height="236"/>
+	<SubTexture name="screamer idle0012" x="342" y="240" width="322" height="236"/>
+	<SubTexture name="screamer idle0013" x="342" y="240" width="322" height="236"/>
+	<SubTexture name="screamer left0000" x="674" y="240" width="320" height="240"/>
+	<SubTexture name="screamer left0001" x="1004" y="240" width="320" height="240"/>
+	<SubTexture name="screamer left0002" x="1334" y="240" width="320" height="240"/>
+	<SubTexture name="screamer left0003" x="1664" y="240" width="320" height="240"/>
+	<SubTexture name="screamer left0004" x="10" y="490" width="320" height="240"/>
+	<SubTexture name="screamer left0005" x="340" y="490" width="320" height="240"/>
+	<SubTexture name="screamer left0006" x="670" y="490" width="320" height="240"/>
+	<SubTexture name="screamer left0007" x="1000" y="490" width="320" height="240"/>
+	<SubTexture name="screamer left0008" x="1330" y="490" width="320" height="240"/>
+	<SubTexture name="screamer left0009" x="1660" y="490" width="320" height="240"/>
+	<SubTexture name="screamer left0010" x="10" y="740" width="320" height="240"/>
+	<SubTexture name="screamer left0011" x="340" y="740" width="320" height="240"/>
+	<SubTexture name="screamer left0012" x="670" y="740" width="320" height="240"/>
+	<SubTexture name="screamer left0013" x="1000" y="740" width="320" height="240"/>
+	<SubTexture name="screamer left0014" x="1330" y="740" width="320" height="240"/>
+	<SubTexture name="screamer left0015" x="1660" y="740" width="320" height="240"/>
+	<SubTexture name="screamer left0016" x="10" y="990" width="320" height="240"/>
+	<SubTexture name="screamer left0017" x="340" y="990" width="320" height="240"/>
+	<SubTexture name="screamer left0018" x="670" y="990" width="320" height="240"/>
+	<SubTexture name="screamer left0019" x="1000" y="990" width="320" height="240"/>
+	<SubTexture name="screamer left0020" x="1330" y="990" width="320" height="240"/>
+	<SubTexture name="screamer left0021" x="1660" y="990" width="320" height="240"/>
+	<SubTexture name="screamer left0022" x="10" y="1240" width="320" height="240"/>
+	<SubTexture name="screamer left0023" x="340" y="1240" width="320" height="240"/>
+	<SubTexture name="screamer left0024" x="670" y="1240" width="320" height="240"/>
+	<SubTexture name="screamer left0025" x="1000" y="1240" width="320" height="240"/>
+	<SubTexture name="screamer left0026" x="1330" y="1240" width="320" height="240"/>
+	<SubTexture name="screamer left0027" x="1660" y="1240" width="320" height="240"/>
+	<SubTexture name="screamer left0028" x="10" y="1490" width="320" height="240"/>
+	<SubTexture name="screamer left0029" x="340" y="1490" width="320" height="240"/>
+	<SubTexture name="screamer left0030" x="670" y="1490" width="320" height="240"/>
+	<SubTexture name="screamer left0031" x="1000" y="1490" width="320" height="240"/>
+	<SubTexture name="screamer left0032" x="1330" y="1490" width="320" height="240"/>
+	<SubTexture name="screamer left0033" x="1660" y="1490" width="320" height="240"/>
+	<SubTexture name="screamer left0034" x="10" y="1740" width="320" height="240"/>
+	<SubTexture name="screamer left0035" x="340" y="1740" width="320" height="240"/>
+	<SubTexture name="screamer left0036" x="670" y="1740" width="320" height="240"/>
+	<SubTexture name="screamer left0037" x="1000" y="1740" width="320" height="240"/>
+	<SubTexture name="screamer left0038" x="1330" y="1740" width="320" height="240"/>
+	<SubTexture name="screamer left0039" x="1660" y="1740" width="320" height="240"/>
+	<SubTexture name="screamer left0040" x="10" y="1990" width="320" height="240"/>
+	<SubTexture name="screamer left0041" x="340" y="1990" width="320" height="240"/>
+	<SubTexture name="screamer left0042" x="670" y="1990" width="320" height="240"/>
+	<SubTexture name="screamer left0043" x="1000" y="1990" width="320" height="240"/>
+	<SubTexture name="screamer left0044" x="1330" y="1990" width="320" height="240"/>
+	<SubTexture name="screamer left0045" x="1660" y="1990" width="320" height="240"/>
+	<SubTexture name="screamer left0046" x="1660" y="1990" width="320" height="240"/>
+	<SubTexture name="screamer left0047" x="1660" y="1990" width="320" height="240"/>
+	<SubTexture name="screamer right0000" x="10" y="2240" width="320" height="240"/>
+	<SubTexture name="screamer right0001" x="340" y="2240" width="320" height="240"/>
+	<SubTexture name="screamer right0002" x="670" y="2240" width="320" height="240"/>
+	<SubTexture name="screamer right0003" x="1000" y="2240" width="320" height="240"/>
+	<SubTexture name="screamer right0004" x="1330" y="2240" width="320" height="240"/>
+	<SubTexture name="screamer right0005" x="1660" y="2240" width="320" height="240"/>
+	<SubTexture name="screamer right0006" x="10" y="2490" width="320" height="240"/>
+	<SubTexture name="screamer right0007" x="340" y="2490" width="320" height="240"/>
+	<SubTexture name="screamer right0008" x="670" y="2490" width="320" height="240"/>
+	<SubTexture name="screamer right0009" x="1000" y="2490" width="320" height="240"/>
+	<SubTexture name="screamer right0010" x="1330" y="2490" width="320" height="240"/>
+	<SubTexture name="screamer right0011" x="1660" y="2490" width="320" height="240"/>
+	<SubTexture name="screamer right0012" x="10" y="2740" width="320" height="240"/>
+	<SubTexture name="screamer right0013" x="340" y="2740" width="320" height="240"/>
+	<SubTexture name="screamer right0014" x="670" y="2740" width="320" height="240"/>
+	<SubTexture name="screamer right0015" x="1000" y="2740" width="320" height="240"/>
+	<SubTexture name="screamer right0016" x="1330" y="2740" width="320" height="240"/>
+	<SubTexture name="screamer right0017" x="1660" y="2740" width="320" height="240"/>
+	<SubTexture name="screamer right0018" x="10" y="2990" width="320" height="240"/>
+	<SubTexture name="screamer right0019" x="340" y="2990" width="320" height="240"/>
+	<SubTexture name="screamer right0020" x="670" y="2990" width="320" height="240"/>
+	<SubTexture name="screamer right0021" x="1000" y="2990" width="320" height="240"/>
+	<SubTexture name="screamer right0022" x="1330" y="2990" width="320" height="240"/>
+	<SubTexture name="screamer right0023" x="1660" y="2990" width="320" height="240"/>
+	<SubTexture name="screamer right0024" x="10" y="3240" width="320" height="240"/>
+	<SubTexture name="screamer right0025" x="340" y="3240" width="320" height="240"/>
+	<SubTexture name="screamer right0026" x="670" y="3240" width="320" height="240"/>
+	<SubTexture name="screamer right0027" x="1000" y="3240" width="320" height="240"/>
+	<SubTexture name="screamer right0028" x="1330" y="3240" width="320" height="240"/>
+</TextureAtlas>
