@@ -501,6 +501,7 @@ class Character extends FlxSprite
 
 				addOffset('idle');
 
+				playAnim('idle');
 				flipX = true;
 
 			case 'bf':

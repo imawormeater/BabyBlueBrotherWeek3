@@ -218,6 +218,7 @@ class PlayState extends MusicBeatState
 	public function addObject(object:FlxBasic) { add(object); }
 	public function removeObject(object:FlxBasic) { remove(object); }
 	var dadAgainSinging:Bool = false;
+	var dadAgainExist:Bool = false;
 	var boyfriendAgainSinging:Bool = false;
 
 
@@ -876,6 +877,8 @@ class PlayState extends MusicBeatState
 			case 'alien':
 				dad.y += 230;
 				dad.x += 0;
+			case 'bob':	
+				dad.y += 300;
 		}
 
 
@@ -1160,10 +1163,6 @@ class PlayState extends MusicBeatState
 				case 'trackstar':
 					funnyIntro(doof);
 				case 'kitty':
-					dadAgain.x = -200;
-					dadAgain.y = 150;
-					dadAgain = new Character(dadAgain.x, dadAgain.y, 'bob');
-					add(dadAgain);
 					startCountdown();
 				default:
 					startCountdown();
@@ -1174,10 +1173,12 @@ class PlayState extends MusicBeatState
 			switch (curSong.toLowerCase())
 			{
 				case 'kitty':
-					dadAgain.x = -200;
-					dadAgain.y = 150;
+					dadAgain.x -= 400;
+					dadAgain.y += 300;
 					dadAgain = new Character(dadAgain.x, dadAgain.y, 'bob');
 					add(dadAgain);
+					dadAgainExist = true;
+					startCountdown();
 				default:
 					startCountdown();
 			}
@@ -3980,6 +3981,18 @@ class PlayState extends MusicBeatState
 				FlxG.camera.zoom += 0.1;
 				camHUD.zoom += 0.1;
 			}
+		//kitty test (testing other dad)
+		if (curStage == 'crib' && curSong.toLowerCase() == 'kitty')
+				{
+					switch (curStep)
+					{
+						case 1:
+							dadAgainSinging = true;
+						case 32:
+							dadAgainSinging = true;
+						
+					}
+				}
 		// yes this updates every step.
 		// yes this is bad
 		// but i'm doing it to update misses and accuracy
@@ -4033,6 +4046,8 @@ class PlayState extends MusicBeatState
 			// Dad doesnt interupt his own notes
 			if (SONG.notes[Math.floor(curStep / 16)].mustHitSection && dad.curCharacter != 'gf')
 				dad.dance();
+				if (dadAgainExist)
+					dadAgain.dance();
 		}
 		// FlxG.log.add('change bpm' + SONG.notes[Std.int(curStep / 16)].changeBPM);
 
