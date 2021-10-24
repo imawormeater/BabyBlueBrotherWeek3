@@ -794,7 +794,7 @@ class PlayState extends MusicBeatState
 					bg.active = false;
 					add(bg);
 					
-					var phloxtweets:FlxSprite = new FlxSprite(-170, 150).loadGraphic(Paths.image('gayshit'));
+					var phloxtweets:FlxSprite = new FlxSprite(-170, 140).loadGraphic(Paths.image('gayshit'));
 					phloxtweets.antialiasing = true;
 					phloxtweets.scrollFactor.set(0.6, 0.6);
 					phloxtweets.active = false;
@@ -1237,6 +1237,20 @@ class PlayState extends MusicBeatState
 					funnyIntro(doof);
 				case 'kitty':
 					startCountdown();
+				case 'baby-bob':
+					var grain:FlxSprite = new FlxSprite(0, 0).loadGraphic(Paths.image('grain'));
+					grain.antialiasing = true;
+					grain.scrollFactor.set();
+					grain.active = false;
+					add(grain);
+					funnyIntro(doof);
+				case 'just-like-you':
+					dadAgain.x -= 165;
+					dadAgain.y += 350;
+					dadAgain = new Character(dadAgain.x, dadAgain.y, 'ron');
+					add(dadAgain);
+					dadAgainExist = true;
+					funnyIntro(doof);
 				default:
 					startCountdown();
 			}
@@ -1245,13 +1259,13 @@ class PlayState extends MusicBeatState
 		{
 			switch (curSong.toLowerCase())
 			{
-				case 'kitty':
-					dadAgain.x -= 400;
-					dadAgain.y += 300;
-					dadAgain = new Character(dadAgain.x, dadAgain.y, 'bob');
-					add(dadAgain);
-					dadAgainExist = true;
-					startCountdown();
+				//case 'kitty':
+					//dadAgain.x -= 400;
+					//dadAgain.y += 300;
+					//dadAgain = new Character(dadAgain.x, dadAgain.y, 'bob');
+					//add(dadAgain);
+					//dadAgainExist = true;
+					//startCountdown();
 				case 'baby-bob':
 					//dream
 					var grain:FlxSprite = new FlxSprite(0, 0).loadGraphic(Paths.image('grain'));
@@ -1593,7 +1607,7 @@ class PlayState extends MusicBeatState
 		}
 		if (curSong == 'un-adieu')
 			{	
-				var dreamyThing:FlxSprite = new FlxSprite(-150, -100).loadGraphic(Paths.image('napSleep20013'));
+				var dreamyThing:FlxSprite = new FlxSprite(-150, -100).loadGraphic(Paths.image('napSleep'));
 				dreamyThing.scrollFactor.set();
 				add(dreamyThing);
 				wiggleShit.effectType = WiggleEffectType.DREAMY;
@@ -2332,6 +2346,7 @@ class PlayState extends MusicBeatState
 						camFollow.y = dad.getMidpoint().y - 20;
 					case 'bob-ron':
 						camFollow.x = dad.getMidpoint().x - 100;
+						camFollow.y = dad.getMidpoint().y + 10;
 				}
 
 				if (dad.curCharacter == 'mom')
