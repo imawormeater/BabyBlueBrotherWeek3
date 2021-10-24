@@ -223,6 +223,8 @@ class PlayState extends MusicBeatState
 	var dadAgainExist:Bool = false;
 	var dadSinging:Bool = true;
 	var boyfriendAgainSinging:Bool = false;
+	var boyfriendAgainExist:Bool = false;
+	var boyfriendSigning:Bool =true;
 
 
 	override public function create()
@@ -960,6 +962,7 @@ class PlayState extends MusicBeatState
 
 		
 		boyfriend = new Boyfriend(770, 450, SONG.player1);
+		boyfriendAgain = new Boyfriend(770, 450, SONG.player1);
 
 		// REPOSITIONING PER STAGE
 		switch (curStage)
@@ -1261,6 +1264,11 @@ class PlayState extends MusicBeatState
 					dadAgain = new Character(dadAgain.x, dadAgain.y, 'ron');
 					add(dadAgain);
 					dadAgainExist = true;
+					boyfriendAgain.x += 165;
+					boyfriendAgain.y += 100;
+					boyfriendAgain = new Boyfriend(boyfriendAgain.x, boyfriendAgain.y, 'player-baby');
+					add(boyfriendAgain);
+					boyfriendAgainExist = true;
 					funnyIntro(doof);
 				default:
 					startCountdown();
@@ -1291,6 +1299,11 @@ class PlayState extends MusicBeatState
 					dadAgain = new Character(dadAgain.x, dadAgain.y, 'ron');
 					add(dadAgain);
 					dadAgainExist = true;
+					boyfriendAgain.x += 165;
+					boyfriendAgain.y += 100;
+					boyfriendAgain = new Boyfriend(boyfriendAgain.x, boyfriendAgain.y, 'player-baby');
+					add(boyfriendAgain);
+					boyfriendAgainExist = true;
 					startCountdown();
 				default:
 					startCountdown();
@@ -2403,6 +2416,8 @@ class PlayState extends MusicBeatState
 					case 'dream':
 						camFollow.x = boyfriend.getMidpoint().x - 220;
 						camFollow.y = boyfriend.getMidpoint().y - 15;
+					case 'phlox':
+						camFollow.y = boyfriend.getMidpoint().y - 15;
 				}
 			}
 		}
@@ -2799,7 +2814,7 @@ class PlayState extends MusicBeatState
 					}
 					else
 					{
-						FlxG.sound.playMusic(Paths.music('freakyMenu'));
+						FlxG.sound.playMusic(Paths.music('menu_music_1'));
 
 						transIn = FlxTransitionableState.defaultTransIn;
 						transOut = FlxTransitionableState.defaultTransOut;
@@ -3334,6 +3349,8 @@ class PlayState extends MusicBeatState
 				{
 					if (boyfriend.animation.curAnim.name.startsWith('sing') && !boyfriend.animation.curAnim.name.endsWith('miss'))
 						boyfriend.playAnim('idle');
+						boyfriendAgain.playAnim('idle');
+					
 				}
 		 
 				playerStrums.forEach(function(spr:FlxSprite)
@@ -3381,13 +3398,35 @@ class PlayState extends MusicBeatState
 			switch (direction)
 			{
 				case 0:
-					boyfriend.playAnim('singLEFTmiss', true);
+					if(boyfriendSigning)
+						boyfriend.playAnim('singLEFTmiss', true);
 				case 1:
-					boyfriend.playAnim('singDOWNmiss', true);
+					if(boyfriendSigning)
+						boyfriend.playAnim('singDOWNmiss', true);
 				case 2:
-					boyfriend.playAnim('singUPmiss', true);
+					if(boyfriendSigning)
+						boyfriend.playAnim('singUPmiss', true);
 				case 3:
-					boyfriend.playAnim('singRIGHTmiss', true);
+					if(boyfriendSigning)
+						boyfriend.playAnim('singRIGHTmiss', true);
+			}
+			if(boyfriendAgainExist)
+			{
+				switch (direction)
+				{
+					case 0:
+						if(boyfriendAgainSinging)
+							boyfriendAgain.playAnim('singLEFTmiss', true);
+					case 1:
+						if(boyfriendAgainSinging)
+							boyfriendAgain.playAnim('singDOWNmiss', true);
+					case 2:
+						if(boyfriendAgainSinging)
+							boyfriendAgain.playAnim('singUPmiss', true);
+					case 3:
+						if(boyfriendAgainSinging)
+							boyfriendAgain.playAnim('singRIGHTmiss', true);
+				}
 			}
 
 			#if windows
@@ -3532,13 +3571,25 @@ class PlayState extends MusicBeatState
 					switch (note.noteData)
 					{
 						case 2:
-							boyfriend.playAnim('singUP', true);
+							if(boyfriendSigning)
+								boyfriend.playAnim('singUP', true);
+							if(boyfriendAgainSinging)
+								boyfriendAgain.playAnim('singUP', true);
 						case 3:
-							boyfriend.playAnim('singRIGHT', true);
+							if(boyfriendSigning)
+								boyfriend.playAnim('singRIGHT', true);
+							if(boyfriendAgainSinging)
+								boyfriendAgain.playAnim('singRIGHT', true);
 						case 1:
-							boyfriend.playAnim('singDOWN', true);
+							if(boyfriendSigning)
+								boyfriend.playAnim('singDOWN', true);
+							if(boyfriendAgainSinging)
+								boyfriendAgain.playAnim('singDOWN', true);
 						case 0:
-							boyfriend.playAnim('singLEFT', true);
+							if(boyfriendSigning)
+								boyfriend.playAnim('singLEFT', true);
+							if(boyfriendAgainSinging)
+								boyfriendAgain.playAnim('singLEFT', true);
 					}
 		
 					#if windows
@@ -4154,6 +4205,7 @@ class PlayState extends MusicBeatState
 						
 					}
 				}
+				//turns in just like you
 		if (curStage == 'phlox' && curSong.toLowerCase() == 'just-like-you')
 				{
 					switch (curStep)
@@ -4183,6 +4235,38 @@ class PlayState extends MusicBeatState
 							dadAgainSinging = true;
 					}
 				}
+		if (curStage == 'phlox' && curSong.toLowerCase() == 'just-like-you')
+				{
+					switch (curStep)
+					{
+						case 191:
+							boyfriendSigning = false;
+							boyfriendAgainSinging = true;
+						case 319:
+							boyfriendSigning = true;
+							boyfriendAgainSinging = false;
+						case 447:
+							boyfriendSigning = true;
+							boyfriendAgainSinging = true;
+						case 671:
+							boyfriendSigning = true;
+							boyfriendAgainSinging = false;
+						case 688:
+							boyfriendSigning = false;
+							boyfriendAgainSinging = true;
+						case 719:
+							boyfriendSigning = true;
+							boyfriendAgainSinging = false;
+						case 727:
+							boyfriendSigning = false;
+							boyfriendAgainSinging = true;
+						case 831:
+							boyfriendSigning = true;
+							boyfriendAgainSinging = true;
+					}
+				}
+	
+				//baby bob hardcoded in eyeballs
 		if (curStage == 'dream' && curSong.toLowerCase() == 'baby-bob')
 				{
 					switch (curStep)
@@ -4323,6 +4407,8 @@ class PlayState extends MusicBeatState
 		if (!boyfriend.animation.curAnim.name.startsWith("sing"))
 		{
 			boyfriend.playAnim('idle');
+			if(boyfriendAgainExist)
+				boyfriendAgain.playAnim('idle');
 		}
 		
 
