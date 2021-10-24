@@ -783,6 +783,35 @@ class PlayState extends MusicBeatState
 						halloweenBG.antialiasing = true;
 						add(halloweenBG);
 				}		
+			case 'phlox':
+				{
+					curStage = 'phlox';
+					defaultCamZoom = 1.0;
+
+					var bg:FlxSprite = new FlxSprite(-120, -120).loadGraphic(Paths.image('phloxbg'));
+					bg.antialiasing = true;
+					bg.scrollFactor.set(1, 1);
+					bg.active = false;
+					add(bg);
+					
+					var phloxtweets:FlxSprite = new FlxSprite(-120, -120).loadGraphic(Paths.image('gayshit'));
+					phloxtweets.antialiasing = true;
+					phloxtweets.scrollFactor.set(0.8, 0.8);
+					phloxtweets.active = false;
+					add(phloxtweets);
+
+					var ground:FlxSprite = new FlxSprite(-250, 0).loadGraphic(Paths.image('phloxground'));
+					ground.antialiasing = true;
+					ground.scrollFactor.set(0.8, 0.8);
+					ground.active = false;
+					add(ground);
+
+					var phloxsign:FlxSprite = new FlxSprite(120, -200).loadGraphic(Paths.image('phloxsign'));
+					phloxsign.antialiasing = true;
+					phloxsign.scrollFactor.set(0.8, 0.8);
+					phloxsign.active = false;
+					add(phloxsign);
+				}
 			default:
 			{
 					defaultCamZoom = 0.9;
@@ -944,6 +973,8 @@ class PlayState extends MusicBeatState
 				dad.x -= 80;
 				boyfriend.y -= 37;
 				boyfriend.x -= 3;
+			case 'phlox':
+				gf.y += -1200;
 			case 'limo':
 				boyfriend.y -= 220;
 				boyfriend.x += 700;
@@ -1229,8 +1260,8 @@ class PlayState extends MusicBeatState
 					add(grain);
 					startCountdown();
 				case 'just-like-you':
-					dadAgain.x -= 100;
-					dadAgain.y += 360;
+					dadAgain.x -= 165;
+					dadAgain.y += 350;
 					dadAgain = new Character(dadAgain.x, dadAgain.y, 'ron');
 					add(dadAgain);
 					dadAgainExist = true;
@@ -4063,7 +4094,7 @@ class PlayState extends MusicBeatState
 						
 					}
 				}
-		if (curStage == 'street' && curSong.toLowerCase() == 'just-like-you')
+		if (curStage == 'phlox' && curSong.toLowerCase() == 'just-like-you')
 				{
 					switch (curStep)
 					{
