@@ -360,7 +360,7 @@ class PlayState extends MusicBeatState
 				dialogue = CoolUtil.coolTextFile(Paths.txt('trackstar/dialogue'));
 			case 'baby-bob':
 				dialogue = CoolUtil.coolTextFile(Paths.txt('baby-bob/dialogue'));
-			case 'just-like-you'
+			case 'just-like-you':
 				dialogue = CoolUtil.coolTextFile(Paths.txt('just-like-you/dialogue'));
 				//retweet if your a child rapist :)
 		}
