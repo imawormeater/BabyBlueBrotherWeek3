@@ -219,6 +219,7 @@ class PlayState extends MusicBeatState
 	public function removeObject(object:FlxBasic) { remove(object); }
 	var dadAgainSinging:Bool = false;
 	var dadAgainExist:Bool = false;
+	var dadSinging:Bool = true;
 	var boyfriendAgainSinging:Bool = false;
 
 
@@ -1226,6 +1227,13 @@ class PlayState extends MusicBeatState
 					grain.scrollFactor.set();
 					grain.active = false;
 					add(grain);
+					startCountdown();
+				case 'just-like-you':
+					dadAgain.x -= 100;
+					dadAgain.y += 360;
+					dadAgain = new Character(dadAgain.x, dadAgain.y, 'ron');
+					add(dadAgain);
+					dadAgainExist = true;
 					startCountdown();
 				default:
 					startCountdown();
@@ -2286,6 +2294,8 @@ class PlayState extends MusicBeatState
 						camFollow.y = dad.getMidpoint().y + 30;
 					case 'evil-baby':
 						camFollow.y = dad.getMidpoint().y - 20;
+					case 'bob-ron':
+						camFollow.x = dad.getMidpoint().x - 100;
 				}
 
 				if (dad.curCharacter == 'mom')
@@ -2534,20 +2544,25 @@ class PlayState extends MusicBeatState
 	
 						switch (Math.abs(daNote.noteData))
 						{
+							//multiple dad singing code thing
 							case 2:
-								dad.playAnim('singUP' + altAnim, true);
+								if (dadSinging)
+									dad.playAnim('singUP' + altAnim, true);
 								if (dadAgainSinging)
 									dadAgain.playAnim('singUP' + altAnim, true);
 							case 3:
-								dad.playAnim('singRIGHT' + altAnim, true);
+								if (dadSinging)
+									dad.playAnim('singRIGHT' + altAnim, true);
 								if (dadAgainSinging)
 									dadAgain.playAnim('singRIGHT' + altAnim, true);
 							case 1:
-								dad.playAnim('singDOWN' + altAnim, true);
+								if (dadSinging)
+									dad.playAnim('singDOWN' + altAnim, true);
 								if (dadAgainSinging)
 									dadAgain.playAnim('singDOWN' + altAnim, true);
 							case 0:
-								dad.playAnim('singLEFT' + altAnim, true);
+								if (dadSinging)
+									dad.playAnim('singLEFT' + altAnim, true);
 								if (dadAgainSinging)
 									dadAgain.playAnim('singLEFT' + altAnim, true);
 						}
@@ -4042,6 +4057,35 @@ class PlayState extends MusicBeatState
 						case 32:
 							dadAgainSinging = true;
 						
+					}
+				}
+		if (curStage == 'street' && curSong.toLowerCase() == 'just-like-you')
+				{
+					switch (curStep)
+					{
+						case 128:
+							dadSinging = false;
+							dadAgainSinging = true;
+						case 256:
+							dadSinging = true;
+							dadAgainSinging = false;
+						case 384:
+							dadSinging = true;
+							dadAgainSinging = true;
+						case 640:
+							dadAgainSinging = false;
+						case 656:
+							dadSinging = false;
+							dadAgainSinging = true;
+						case 704:
+							dadSinging = true;
+							dadAgainSinging = false;
+						case 712:
+							dadSinging = false;
+							dadAgainSinging = true;
+						case 768:
+							dadSinging = true;
+							dadAgainSinging = true;
 					}
 				}
 		// yes this updates every step.
