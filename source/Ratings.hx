@@ -48,7 +48,7 @@ class Ratings
                 switch(i)
                 {
                     case 0:
-                        ranking += " AAAAA";
+                        ranking += " EPIC";
                     case 1:
                         ranking += " AAAA:";
                     case 2:
@@ -74,11 +74,11 @@ class Ratings
                     case 12:
                         ranking += " A";
                     case 13:
-                        ranking += " B";
+                        ranking += " SHIT";
                     case 14:
-                        ranking += " C";
+                        ranking += " SHIT";
                     case 15:
-                        ranking += " D";
+                        ranking += " SHIT";
                 }
                 break;
             }
