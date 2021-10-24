@@ -286,6 +286,26 @@ class DialogueBox extends FlxSpriteGroup
 					portraitRight.visible = true;
 					portraitRight.animation.play('enter');
 				}
+			case 'dream-baby':
+					swagDialogue.sounds = [FlxG.sound.load(Paths.sound('pixelText'), 1)];
+					swagDialogue.color = FlxColor.fromRGB(80, 165, 235);
+					portraitLeft.visible = false;
+					if (!portraitRight.visible)
+					{
+						portraitRight.frames = Paths.getSparrowAtlas('dialogue/ports');
+						portraitRight.animation.addByPrefix('enter', 'player baby port', 24, false);
+						portraitRight.scale.set(1.3, 1.3);
+						portraitRight.antialiasing = true;
+						portraitRight.updateHitbox();
+						portraitRight.scrollFactor.set();
+						// portraitRight.screenCenter(X);
+	
+						portraitRight.x = (box.x + box.width) - (portraitRight.width) - 90;
+						portraitRight.y = box.y + -225;
+	
+						portraitRight.visible = true;
+						portraitRight.animation.play('enter');
+					}
 			case 'baby':
 				swagDialogue.sounds = [FlxG.sound.load(Paths.sound('pixelText'), 1)];
 				swagDialogue.color = FlxColor.fromRGB(26, 96, 237);
@@ -366,6 +386,67 @@ class DialogueBox extends FlxSpriteGroup
 					portraitLeft.visible = true;
 					portraitLeft.animation.play('enter');
 				}
+			case 'bob':
+				swagDialogue.sounds = [FlxG.sound.load(Paths.sound('pixelText'), 1)];
+				swagDialogue.color = FlxColor.fromRGB(26, 96, 237);
+				portraitRight.visible = false;
+				if (!portraitLeft.visible)
+					{
+						portraitLeft.frames = Paths.getSparrowAtlas('dialogue/ports');
+						portraitLeft.animation.addByPrefix('enter', 'bob port', 24, false);
+						portraitLeft.scale.set(1.3, 1.3);
+						portraitLeft.antialiasing = true;
+						portraitLeft.updateHitbox();
+						portraitLeft.scrollFactor.set();
+						// portraitLeft.screenCenter(X);
+		
+						portraitLeft.x = box.x + 64;
+						portraitLeft.y = box.y - 196;
+		
+						portraitLeft.visible = true;
+						portraitLeft.animation.play('enter');
+					}
+			case 'ron':
+					swagDialogue.sounds = [FlxG.sound.load(Paths.sound('pixelText'), 1)];
+					swagDialogue.color = FlxColor.fromRGB(26, 96, 237);
+					portraitRight.visible = false;
+					if (!portraitLeft.visible)
+						{
+							portraitLeft.frames = Paths.getSparrowAtlas('dialogue/ports');
+							portraitLeft.animation.addByPrefix('enter', 'ron port', 24, false);
+							portraitLeft.scale.set(1.3, 1.3);
+							portraitLeft.antialiasing = true;
+							portraitLeft.updateHitbox();
+							portraitLeft.scrollFactor.set();
+							// portraitLeft.screenCenter(X);
+			
+							portraitLeft.x = box.x + 64;
+							portraitLeft.y = box.y - 196;
+			
+							portraitLeft.visible = true;
+							portraitLeft.animation.play('enter');
+						}
+			case 'og-bob':
+					swagDialogue.sounds = [FlxG.sound.load(Paths.sound('pixelText'), 1)];
+					swagDialogue.color = FlxColor.fromRGB(26, 96, 237);
+					portraitRight.visible = false;
+					if (!portraitLeft.visible)
+						{
+							portraitLeft.frames = Paths.getSparrowAtlas('dialogue/ports');
+							portraitLeft.animation.addByPrefix('enter', 'normal bob port', 24, false);
+							portraitLeft.scale.set(1.3, 1.3);
+							portraitLeft.antialiasing = true;
+							portraitLeft.updateHitbox();
+							portraitLeft.scrollFactor.set();
+							// portraitLeft.screenCenter(X);
+			
+							portraitLeft.x = box.x + 64;
+							portraitLeft.y = box.y - 196;
+			
+							portraitLeft.visible = true;
+							portraitLeft.animation.play('enter');
+						}
+
 		}
 	}
 

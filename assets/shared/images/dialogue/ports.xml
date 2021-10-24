@@ -3,8 +3,12 @@
 	<!-- Created with Adobe Animate version 19.2.0.405 -->
 	<!-- http://www.adobe.com/products/animate.html -->
 	<SubTexture name="baby port0000" x="10" y="10" width="267" height="241"/>
-	<SubTexture name="boyfriend port0000" x="287" y="10" width="311" height="236"/>
-	<SubTexture name="evil baby port0000" x="608" y="10" width="279" height="239"/>
-	<SubTexture name="goblin port0000" x="10" y="261" width="286" height="237"/>
-	<SubTexture name="lol port0000" x="306" y="261" width="280" height="236"/>
+	<SubTexture name="bob port0000" x="287" y="10" width="227" height="244"/>
+	<SubTexture name="boyfriend port0000" x="524" y="10" width="311" height="236"/>
+	<SubTexture name="evil baby port0000" x="10" y="264" width="279" height="239"/>
+	<SubTexture name="goblin port0000" x="299" y="264" width="286" height="237"/>
+	<SubTexture name="lol port0000" x="595" y="264" width="280" height="236"/>
+	<SubTexture name="normal bob port0000" x="10" y="513" width="311" height="240"/>
+	<SubTexture name="player baby port0000" x="331" y="513" width="279" height="239"/>
+	<SubTexture name="ron port0000" x="620" y="513" width="307" height="257"/>
 </TextureAtlas>

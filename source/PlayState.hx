@@ -3599,10 +3599,7 @@ class PlayState extends MusicBeatState
 	var appearscreen:Bool = true;
 	function shakescreen()
 		{
-			new FlxTimer().start(0.01, function(tmr:FlxTimer)
-			{
-				Lib.application.window.move(Lib.application.window.x + FlxG.random.int( -10, 10),Lib.application.window.y + FlxG.random.int( -8, 8));
-			}, 50);
+			camera.shake(0.02,0.5);
 		}
 	function resetBobismad():Void
 		{
