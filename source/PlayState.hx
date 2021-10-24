@@ -756,7 +756,7 @@ class PlayState extends MusicBeatState
 			case 'dream':
 				{
 						curStage = 'dream';
-						defaultCamZoom = 1;
+						defaultCamZoom = 1.1;
 
 						var dreamyThing:FlxSprite = new FlxSprite(-170, -100).loadGraphic(Paths.image('dreambg'));
 						dreamyThing.scrollFactor.set();
@@ -766,6 +766,12 @@ class PlayState extends MusicBeatState
 						wiggleShit.waveFrequency = 2;
 						wiggleShit.waveSpeed = 1;
 						dreamyThing.shader = wiggleShit.shader;
+						
+						var bg:FlxSprite = new FlxSprite(-120, -120).loadGraphic(Paths.image('flor'));
+						bg.antialiasing = true;
+						bg.scrollFactor.set(1, 1);
+						bg.active = false;
+						add(bg);
 
 						var hallowTex = Paths.getSparrowAtlas('dreamtv');
 						halloweenBG = new FlxSprite(135	, 125);
@@ -775,12 +781,6 @@ class PlayState extends MusicBeatState
 						halloweenBG.animation.play('idle');
 						halloweenBG.antialiasing = true;
 						add(halloweenBG);
-
-						var bg:FlxSprite = new FlxSprite(-120, -120).loadGraphic(Paths.image('flor'));
-						bg.antialiasing = true;
-						bg.scrollFactor.set(1, 1);
-						bg.active = false;
-						add(bg);
 				}		
 			default:
 			{
@@ -2317,6 +2317,9 @@ class PlayState extends MusicBeatState
 					case 'schoolEvil':
 						camFollow.x = boyfriend.getMidpoint().x - 200;
 						camFollow.y = boyfriend.getMidpoint().y - 200;
+					case 'dream':
+						camFollow.x = boyfriend.getMidpoint().x - 220;
+						camFollow.y = boyfriend.getMidpoint().y - 15;
 				}
 			}
 		}
