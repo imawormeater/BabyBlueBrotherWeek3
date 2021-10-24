@@ -21,7 +21,7 @@ class AnimationDebug extends FlxState
 	var dumbTexts:FlxTypedGroup<FlxText>;
 	var animList:Array<String> = [];
 	var curAnim:Int = 0;
-	var isDad:Bool = false;
+	var isDad:Bool = true;
 	var daAnim:String = 'spooky';
 	var camFollow:FlxObject;
 
@@ -191,7 +191,6 @@ class AnimationDebug extends FlxState
 		}
 
 		super.update(elapsed);
-
 		if(FlxG.keys.pressed.ENTER)
 			{
 				FlxG.switchState(new StoryMenuState());

@@ -752,7 +752,36 @@ class PlayState extends MusicBeatState
 						halloweenBG.animation.play('idle');
 						halloweenBG.antialiasing = true;
 						add(halloweenBG);
-				}			
+				}
+			case 'dream':
+				{
+						curStage = 'dream';
+						defaultCamZoom = 1;
+
+						var dreamyThing:FlxSprite = new FlxSprite(-170, -100).loadGraphic(Paths.image('dreambg'));
+						dreamyThing.scrollFactor.set();
+						add(dreamyThing);
+						wiggleShit.effectType = WiggleEffectType.FLAG;
+						wiggleShit.waveAmplitude = 0.1;
+						wiggleShit.waveFrequency = 2;
+						wiggleShit.waveSpeed = 1;
+						dreamyThing.shader = wiggleShit.shader;
+
+						var hallowTex = Paths.getSparrowAtlas('dreamtv');
+						halloweenBG = new FlxSprite(135	, 125);
+						halloweenBG.scrollFactor.set(0.9, 0.9);
+						halloweenBG.frames = hallowTex;
+						halloweenBG.animation.addByPrefix('idle', 'true');
+						halloweenBG.animation.play('idle');
+						halloweenBG.antialiasing = true;
+						add(halloweenBG);
+
+						var bg:FlxSprite = new FlxSprite(-120, -120).loadGraphic(Paths.image('flor'));
+						bg.antialiasing = true;
+						bg.scrollFactor.set(1, 1);
+						bg.active = false;
+						add(bg);
+				}		
 			default:
 			{
 					defaultCamZoom = 0.9;
@@ -878,7 +907,7 @@ class PlayState extends MusicBeatState
 				dad.y += 230;
 				dad.x += 0;
 			case 'bob':	
-				dad.y += 300;
+				dad.y += 290;
 		}
 
 
@@ -902,7 +931,13 @@ class PlayState extends MusicBeatState
 				gf.y += -1200;
 				boyfriend.x += 240;
 				dad.x += 160;
-				dad.y += 17	;
+				dad.y += 17;
+			case 'dream':
+				gf.y += -1200;
+				dad.y -= 37;
+				dad.x -= 80;
+				boyfriend.y -= 37;
+				boyfriend.x -= 3;
 			case 'limo':
 				boyfriend.y -= 220;
 				boyfriend.x += 700;
@@ -1178,6 +1213,14 @@ class PlayState extends MusicBeatState
 					dadAgain = new Character(dadAgain.x, dadAgain.y, 'bob');
 					add(dadAgain);
 					dadAgainExist = true;
+					startCountdown();
+				case 'baby-bob':
+					//dream
+					var grain:FlxSprite = new FlxSprite(0, 0).loadGraphic(Paths.image('grain'));
+					grain.antialiasing = true;
+					grain.scrollFactor.set();
+					grain.active = false;
+					add(grain);
 					startCountdown();
 				default:
 					startCountdown();

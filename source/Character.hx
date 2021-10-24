@@ -428,17 +428,63 @@ class Character extends FlxSprite
 				frames = tex;
 				animation.addByPrefix('idle', 'baby 2 idle', 24);
 				animation.addByPrefix('singUP', 'baby 2 up', 24);
-				animation.addByPrefix('singRIGHT', 'baby 2 right', 24);
 				animation.addByPrefix('singDOWN', 'baby 2 down', 24);
-				animation.addByPrefix('singLEFT', 'baby 2 sing left', 24);
-
-				addOffset('idle');
-				addOffset("singUP", 34, 50);
-				addOffset("singRIGHT", -28, -16);
-				addOffset("singLEFT", 137, 3);
-				addOffset("singDOWN", 8, -77);
+				if (isPlayer)
+				{
+					animation.addByPrefix('singLEFT', 'baby 2 right', 24);
+					animation.addByPrefix('singRIGHT', 'baby 2 sing left', 24);
+				}
+				else
+				{
+					// Need to be flipped! REDO THIS LATER!
+					animation.addByPrefix('singLEFT', 'baby 2 sing left', 24);
+					animation.addByPrefix('singRIGHT', 'baby 2 right', 24);
+				}
+				if (isPlayer)
+				{
+					addOffset('idle');
+					addOffset("singUP", 34, 50);
+					addOffset("singRIGHT", -28, -16);
+					addOffset("singLEFT", 137, 3);
+					addOffset("singDOWN", 8, -77);
+				}
+				else
+				{
+					addOffset('idle');
+					addOffset("singUP", 34, 50);
+					addOffset("singRIGHT", 137, -16);
+					addOffset("singLEFT", -28, 3);
+					addOffset("singDOWN", 8, -77);
+				}
 			
 				playAnim('idle');
+			case 'player-baby':
+				tex = Paths.getSparrowAtlas('characters/evilbabyplayer', 'shared');
+				frames = tex;
+				animation.addByPrefix('idle', 'baby 2 idle instance 1', 24, false);
+				animation.addByPrefix('singUP', 'baby 2 up instance 1', 24, false);
+				animation.addByPrefix('singLEFT', 'baby 2 right instance 1', 24, false);
+				animation.addByPrefix('singRIGHT', 'baby 2 sing left instance 1', 24, false);
+				animation.addByPrefix('singDOWN', 'baby 2 down instance 1', 24, false);
+				animation.addByPrefix('singUPmiss', 'upmiss instance 1', 24, false);
+				animation.addByPrefix('singLEFTmiss', 'rightmiss instance 1', 24, false);
+				animation.addByPrefix('singRIGHTmiss', 'leftmiss instance 1', 24, false);
+				animation.addByPrefix('singDOWNmiss', 'downmiss instance 1', 24, false);
+
+				addOffset('idle', -5);
+				addOffset("singUP", -5, 60);
+				addOffset("singRIGHT", 58, -19);
+				addOffset("singLEFT", -20, 1);
+				addOffset("singDOWN", 37, -74);
+				addOffset("singUPmiss", -1, 53);
+				addOffset("singRIGHTmiss", 28, 2);
+				addOffset("singLEFTmiss", 146, -16);
+				addOffset("singDOWNmiss", 52, -84);
+
+				playAnim('idle');
+
+				flipX = true;
+				
 			case 'screamer':
 				// DAD ANIMATION LOADING CODE
 				tex = Paths.getSparrowAtlas('characters/screamer');
