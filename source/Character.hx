@@ -463,8 +463,8 @@ class Character extends FlxSprite
 				frames = tex;
 				animation.addByPrefix('idle', 'baby 2 idle instance 1', 24, false);
 				animation.addByPrefix('singUP', 'baby 2 up instance 1', 24, false);
-				animation.addByPrefix('singLEFT', 'baby 2 right instance 1', 24, false);
-				animation.addByPrefix('singRIGHT', 'baby 2 sing left instance 1', 24, false);
+				animation.addByPrefix('singLEFT', 'baby 2 sing left instance 1', 24, false);
+				animation.addByPrefix('singRIGHT', 'baby 2 right instance 1', 24, false);
 				animation.addByPrefix('singDOWN', 'baby 2 down instance 1', 24, false);
 				animation.addByPrefix('singUPmiss', 'upmiss instance 1', 24, false);
 				animation.addByPrefix('singLEFTmiss', 'rightmiss instance 1', 24, false);
@@ -473,8 +473,8 @@ class Character extends FlxSprite
 
 				addOffset('idle', -5);
 				addOffset("singUP", -5, 60);
-				addOffset("singRIGHT", 147, -17);
-				addOffset("singLEFT", -19, 4);
+				addOffset("singRIGHT", -19, 4);
+				addOffset("singLEFT", 147, -17);
 				//addOffset("singRIGHT", -19, 4);
 				//addOffset("singLEFT", 147, -17);
 				addOffset("singDOWN", 37, -74);
@@ -568,7 +568,20 @@ class Character extends FlxSprite
 
 				playAnim('idle');
 				flipX = true;
-
+			
+			case 'bob-ron':
+				tex = Paths.getSparrowAtlas('characters/bob_asset', 'shared');
+				frames = tex;
+				animation.addByPrefix('idle', "bob_idle", 24, false);
+				animation.addByPrefix('singUP', 'bob_UP', 24, false);
+				animation.addByPrefix('singDOWN', 'bob_DOWN', 24, false);
+				animation.addByPrefix('singLEFT', 'bob_LEFT', 24, false);
+				animation.addByPrefix('singRIGHT', 'bob_RIGHT', 24, false);
+	
+				addOffset('idle');
+	
+				playAnim('idle');
+				flipX = true;
 			case 'bf':
 				var tex = Paths.getSparrowAtlas('characters/BOYFRIEND', 'shared');
 				frames = tex;

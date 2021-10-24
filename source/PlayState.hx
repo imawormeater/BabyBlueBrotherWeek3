@@ -766,7 +766,7 @@ class PlayState extends MusicBeatState
 						wiggleShit.waveFrequency = 2;
 						wiggleShit.waveSpeed = 1;
 						dreamyThing.shader = wiggleShit.shader;
-						
+
 						var bg:FlxSprite = new FlxSprite(-120, -120).loadGraphic(Paths.image('flor'));
 						bg.antialiasing = true;
 						bg.scrollFactor.set(1, 1);
@@ -908,6 +908,11 @@ class PlayState extends MusicBeatState
 				dad.x += 0;
 			case 'bob':	
 				dad.y += 290;
+			case 'bob-ron':	
+				dad.y += 290;
+			case 'ron':
+				dad.y += 268;
+				dad.x -= 27;
 		}
 
 
