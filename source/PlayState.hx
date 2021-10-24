@@ -167,6 +167,8 @@ class PlayState extends MusicBeatState
 	var limo:FlxSprite;
 	var goblinDeath:FlxSprite;
 	var grpLimoDancers:FlxTypedGroup<BackgroundDancer>;
+	var bobmadshake:FlxSprite;
+	var bobsound:FlxSound;
 	var fastCar:FlxSprite;
 	var songName:FlxText;
 	var upperBoppers:FlxSprite;
@@ -782,6 +784,11 @@ class PlayState extends MusicBeatState
 						halloweenBG.animation.play('idle');
 						halloweenBG.antialiasing = true;
 						add(halloweenBG);
+						bobmadshake = new FlxSprite( -198, -118).loadGraphic(Paths.image('bobscreen', 'shared'));
+						bobmadshake.scrollFactor.set(0, 0);
+						bobmadshake.visible = false;
+							
+						bobsound = new FlxSound().loadEmbedded(Paths.sound('bobscreen'));
 				}		
 			case 'phlox':
 				{
@@ -794,7 +801,7 @@ class PlayState extends MusicBeatState
 					bg.active = false;
 					add(bg);
 					
-					var phloxtweets:FlxSprite = new FlxSprite(-170, 140).loadGraphic(Paths.image('gayshit'));
+					var phloxtweets:FlxSprite = new FlxSprite(-170, 120).loadGraphic(Paths.image('gayshit'));
 					phloxtweets.antialiasing = true;
 					phloxtweets.scrollFactor.set(0.6, 0.6);
 					phloxtweets.active = false;
@@ -807,7 +814,7 @@ class PlayState extends MusicBeatState
 					ground.active = false;
 					add(ground);
 
-					var phloxsign:FlxSprite = new FlxSprite(750, 430).loadGraphic(Paths.image('phloxsign'));
+					var phloxsign:FlxSprite = new FlxSprite(600, 430).loadGraphic(Paths.image('phloxsign'));
 					phloxsign.antialiasing = true;
 					phloxsign.scrollFactor.set(0.9, 0.9);
 					phloxsign.active = false;
@@ -1288,6 +1295,12 @@ class PlayState extends MusicBeatState
 
 		if (!loadRep)
 			rep = new Replay("na");
+
+		switch (curStage)
+		{
+			case 'dream':
+				add(bobmadshake);
+		}
 
 		super.create();
 	}
@@ -2346,7 +2359,7 @@ class PlayState extends MusicBeatState
 						camFollow.y = dad.getMidpoint().y - 20;
 					case 'bob-ron':
 						camFollow.x = dad.getMidpoint().x - 100;
-						camFollow.y = dad.getMidpoint().y + 10;
+						camFollow.y = dad.getMidpoint().y + 7;
 				}
 
 				if (dad.curCharacter == 'mom')
@@ -3578,6 +3591,36 @@ class PlayState extends MusicBeatState
 			});
 		}
 	}
+	var isbobmad:Bool = true;
+	var appearscreen:Bool = true;
+	function shakescreen()
+		{
+			new FlxTimer().start(0.01, function(tmr:FlxTimer)
+			{
+				Lib.application.window.move(Lib.application.window.x + FlxG.random.int( -10, 10),Lib.application.window.y + FlxG.random.int( -8, 8));
+			}, 50);
+		}
+	function resetBobismad():Void
+		{
+			camHUD.visible = true;
+			bobsound.pause();
+			bobmadshake.visible = false;
+			bobsound.volume = 0;
+			isbobmad = true;
+		}
+	function Bobismad()
+		{
+			camHUD.visible = false;
+			bobmadshake.visible = true;
+			bobsound.play();
+			bobsound.volume = 1;
+			isbobmad = false;
+			shakescreen();
+			new FlxTimer().start(0.5 , function(tmr:FlxTimer)
+			{
+				resetBobismad();
+			});
+		}
 
 	var trainMoving:Bool = false;
 	var trainFrameTiming:Float = 0;
@@ -4137,6 +4180,50 @@ class PlayState extends MusicBeatState
 						case 768:
 							dadSinging = true;
 							dadAgainSinging = true;
+					}
+				}
+		if (curStage == 'dream' && curSong.toLowerCase() == 'baby-bob')
+				{
+					switch (curStep)
+					{
+							case 12:
+								Bobismad();
+							case 44:
+								Bobismad();
+							case 76:
+								Bobismad();
+							case 108:
+								Bobismad();
+							case 160:
+								Bobismad();
+							case 224:
+								Bobismad();
+							case 272:
+								Bobismad();
+							case 336:
+								Bobismad();
+							case 382:
+								Bobismad();
+							case 392:
+								Bobismad();
+							case 432:
+								Bobismad();
+							case 456:
+								Bobismad();
+							case 496:
+								Bobismad();
+							case 576:
+								Bobismad();
+							case 620:
+								Bobismad();
+							case 656:
+								Bobismad();
+							case 836:
+								Bobismad();
+							case 908:
+								Bobismad();
+							case 928:
+								Bobismad();
 					}
 				}
 		// yes this updates every step.
