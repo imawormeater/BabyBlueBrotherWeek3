@@ -567,7 +567,6 @@ class Character extends FlxSprite
 				addOffset('idle');
 
 				playAnim('idle');
-				flipX = true;
 			
 			case 'bob-ron':
 				tex = Paths.getSparrowAtlas('characters/bob_asset', 'shared');
@@ -581,7 +580,6 @@ class Character extends FlxSprite
 				addOffset('idle');
 	
 				playAnim('idle');
-				flipX = true;
 			case 'bf':
 				var tex = Paths.getSparrowAtlas('characters/BOYFRIEND', 'shared');
 				frames = tex;

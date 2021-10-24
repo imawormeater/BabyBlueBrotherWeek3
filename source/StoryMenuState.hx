@@ -26,7 +26,8 @@ class StoryMenuState extends MusicBeatState
 	var weekData:Array<Dynamic> = [
 		['Tutorial'],
 		['Nap-Time', 'Kidz-Bop', 'Baby-Blue'],
-		['Temper-Tantrum', 'Babys-Revenge', 'Un-Adieu', 'Trackstar']
+		['Temper-Tantrum', 'Babys-Revenge', 'Un-Adieu', 'Trackstar'],
+		['Baby-Bob', 'Just-Like-You']
 	];
 	var curDifficulty:Int = 1;
 
@@ -36,12 +37,14 @@ class StoryMenuState extends MusicBeatState
 		['', 'bf', 'gf'],
 		['dad', 'bf', 'gf'],
 		['spooky', 'bf', 'gf']
+		['', 'bf', 'gf']
 	];
 
 	var weekNames:Array<String> = [
 		"I Saw five people drag a woman off a bridge and i did nothing about it",
 		"Babysit your diaper shitting little brother",
-		"Brotherhood Rivalry"
+		"Brotherhood Rivalry",
+		"BOB BOB BOB BOB (ITS A MOD ON SHITBANNANA :))"
 	];
 
 	var txtWeekTitle:FlxText;

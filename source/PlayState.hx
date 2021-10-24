@@ -788,27 +788,28 @@ class PlayState extends MusicBeatState
 					curStage = 'phlox';
 					defaultCamZoom = 1.0;
 
-					var bg:FlxSprite = new FlxSprite(-120, -120).loadGraphic(Paths.image('phloxbg'));
+					var bg:FlxSprite = new FlxSprite(0, 0).loadGraphic(Paths.image('phloxbg'));
 					bg.antialiasing = true;
-					bg.scrollFactor.set(1, 1);
+					bg.scrollFactor.set();
 					bg.active = false;
 					add(bg);
 					
-					var phloxtweets:FlxSprite = new FlxSprite(-120, -120).loadGraphic(Paths.image('gayshit'));
+					var phloxtweets:FlxSprite = new FlxSprite(-170, 150).loadGraphic(Paths.image('gayshit'));
 					phloxtweets.antialiasing = true;
-					phloxtweets.scrollFactor.set(0.8, 0.8);
+					phloxtweets.scrollFactor.set(0.6, 0.6);
 					phloxtweets.active = false;
 					add(phloxtweets);
 
-					var ground:FlxSprite = new FlxSprite(-250, 0).loadGraphic(Paths.image('phloxground'));
+					var ground:FlxSprite = new FlxSprite(-350, 780).loadGraphic(Paths.image('phloxground'));
+					ground.setGraphicSize(Std.int(ground.width * 1.7));
 					ground.antialiasing = true;
 					ground.scrollFactor.set(0.8, 0.8);
 					ground.active = false;
 					add(ground);
 
-					var phloxsign:FlxSprite = new FlxSprite(120, -200).loadGraphic(Paths.image('phloxsign'));
+					var phloxsign:FlxSprite = new FlxSprite(750, 430).loadGraphic(Paths.image('phloxsign'));
 					phloxsign.antialiasing = true;
-					phloxsign.scrollFactor.set(0.8, 0.8);
+					phloxsign.scrollFactor.set(0.9, 0.9);
 					phloxsign.active = false;
 					add(phloxsign);
 				}
