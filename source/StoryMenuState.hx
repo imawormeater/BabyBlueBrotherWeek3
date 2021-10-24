@@ -297,6 +297,12 @@ class StoryMenuState extends MusicBeatState
 					LoadingState.loadAndSwitchState(new VideoState(Paths.video('babycut1'), new PlayState()));
 				});
 			}
+			if (curWeek == 3) {
+				new FlxTimer().start(1, function(tmr:FlxTimer)
+				{
+					LoadingState.loadAndSwitchState(new VideoState(Paths.video('bobcut1'), new PlayState()));
+				});
+			}
 
 			new FlxTimer().start(1, function(tmr:FlxTimer)
 			{
