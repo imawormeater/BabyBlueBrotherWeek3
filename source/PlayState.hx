@@ -3400,33 +3400,24 @@ class PlayState extends MusicBeatState
 				case 0:
 					if(boyfriendSigning)
 						boyfriend.playAnim('singLEFTmiss', true);
+					if(boyfriendAgainSinging && boyfriendAgainExist)
+						boyfriendAgain.playAnim('singLEFTmiss', true);
 				case 1:
 					if(boyfriendSigning)
 						boyfriend.playAnim('singDOWNmiss', true);
+					if(boyfriendAgainSinging && boyfriendAgainExist)
+						boyfriendAgain.playAnim('singDOWNmiss', true);
 				case 2:
 					if(boyfriendSigning)
 						boyfriend.playAnim('singUPmiss', true);
+					if(boyfriendAgainSinging && boyfriendAgainExist)
+						boyfriendAgain.playAnim('singUPmiss', true);
 				case 3:
 					if(boyfriendSigning)
 						boyfriend.playAnim('singRIGHTmiss', true);
-			}
-			if(boyfriendAgainExist)
-			{
-				switch (direction)
-				{
-					case 0:
-						if(boyfriendAgainSinging)
-							boyfriendAgain.playAnim('singLEFTmiss', true);
-					case 1:
-						if(boyfriendAgainSinging)
-							boyfriendAgain.playAnim('singDOWNmiss', true);
-					case 2:
-						if(boyfriendAgainSinging)
-							boyfriendAgain.playAnim('singUPmiss', true);
-					case 3:
-						if(boyfriendAgainSinging)
-							boyfriendAgain.playAnim('singRIGHTmiss', true);
-				}
+					if(boyfriendAgainSinging && boyfriendAgainExist)
+						boyfriendAgain.playAnim('singRIGHTmiss', true);
+
 			}
 
 			#if windows
