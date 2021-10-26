@@ -3656,7 +3656,7 @@ class PlayState extends MusicBeatState
 		}
 	function resetBobismad():Void
 		{
-			camHUD.visible = true;
+			babyArrow.alpha = 1;
 			bobsound.pause();
 			bobmadshake.visible = false;
 			bobsound.volume = 0;
@@ -3664,8 +3664,9 @@ class PlayState extends MusicBeatState
 		}
 	function Bobismad()
 		{
-			camHUD.visible = false;
+			babyArrow.alpha = 0.2;
 			bobmadshake.visible = true;
+			bobmadshake.alpha = 0.06;
 			bobsound.play();
 			bobsound.volume = 1;
 			isbobmad = false;
