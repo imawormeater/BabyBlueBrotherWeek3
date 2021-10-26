@@ -6,6 +6,7 @@ Babys-Revenge:evil-baby:3
 Un-Adieu:evil-baby:3
 Trackstar:running-goblin:3
 Gametoons:gametoons:4
-Kitty:baby:4
 Baby-Bob:bob:5
 Just-Like-You:bob-ron:5
+Insignificance:bob-ron:5
+Kitty:baby:4

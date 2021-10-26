@@ -3673,11 +3673,11 @@ class PlayState extends MusicBeatState
 		{
 			for (babyArrow in playerStrums)
 				{
-					babyArrow.alpha = 0.1;
+					babyArrow.alpha = 0.02;
 				}
 			for (babyArrow in strumLineNotes)
 				{
-					babyArrow.alpha = 0.1;
+					babyArrow.alpha = 0.02;
 				}
 			bobmadshake.visible = true;
 			bobmadshake.alpha = 0.95;
@@ -3773,6 +3773,15 @@ class PlayState extends MusicBeatState
 			iconP2.animation.play(id);
 			trace('did it work, just maybe, just maybe');
 		}
+	function babaFrontPopup():Void
+	{
+		babaPopup.visible = true;
+		babaPopup.animation.play('baba');
+		new FlxTimer().start(0.8 , function(tmr:FlxTimer)
+		{
+			babaPopup.destroy();
+		});
+	}
 	var danced:Bool = false;
 
 	override function stepHit()
@@ -4227,13 +4236,6 @@ class PlayState extends MusicBeatState
 				{
 					switch (curStep)
 					{
-						case 10:
-							babaPopup.visible = true;
-                            babaPopup.animation.play('baba');
-                            new FlxTimer().start(0.8 , function(tmr:FlxTimer)
-                            {
-                                babaPopup.destroy();
-                            });
 						case 128:
 							dadSinging = false;
 							dadAgainSinging = true;
@@ -4335,6 +4337,14 @@ class PlayState extends MusicBeatState
 								Bobismad();
 					}
 				}
+		if (curStage == 'phlox' && curSong.toLowerCase() == 'insignificance')
+			{
+				switch (curStep)
+				{
+					case 1175:
+						babaFrontPopup();
+				}
+			}
 		// yes this updates every step.
 		// yes this is bad
 		// but i'm doing it to update misses and accuracy
