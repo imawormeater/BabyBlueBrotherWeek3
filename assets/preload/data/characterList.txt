@@ -17,3 +17,4 @@ bob
 player-baby
 bob-ron
 ron
+bobcreature

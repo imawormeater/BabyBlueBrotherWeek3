@@ -2171,15 +2171,27 @@ class PlayState extends MusicBeatState
 
 		if (health > 2)
 			health = 2;
-		if (healthBar.percent < 20)
+		if (healthBar.percent < 30)
 			iconP1.animation.curAnim.curFrame = 1;
 		else
 			iconP1.animation.curAnim.curFrame = 0;
 
-		if (healthBar.percent > 80)
-			iconP2.animation.curAnim.curFrame = 1;
+		if (healthBar.percent > 90)
+			switch(SONG.player2)
+			{
+				case 'bobcreature':
+
+				default:
+					iconP2.animation.curAnim.curFrame = 1;
+			}
 		else
-			iconP2.animation.curAnim.curFrame = 0;
+			switch(SONG.player2)
+			{
+				case 'bobcreature':
+					
+				default:
+					iconP2.animation.curAnim.curFrame = 0;
+			}
 
 		/* if (FlxG.keys.justPressed.NINE)
 			FlxG.switchState(new Charting()); */
@@ -4337,7 +4349,7 @@ class PlayState extends MusicBeatState
 								Bobismad();
 					}
 				}
-		if (curStage == 'phlox' && curSong.toLowerCase() == 'insignificance')
+		if (curSong.toLowerCase() == 'insignificance')
 			{
 				switch (curStep)
 				{

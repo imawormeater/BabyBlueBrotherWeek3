@@ -54,6 +54,7 @@ class HealthIcon extends FlxSprite
 		animation.add('player-baby', [39,25], 0, false, isPlayer);
 		animation.add('bob-ron', [46, 47], 0, false, isPlayer);
 		animation.add('ron', [46, 47], 0, false, isPlayer);
+		animation.add('bobcreature', [0, 1, 3, 4, 5, 6, 7, 8, 9, 10], 8, true, isPlayer);
 		animation.play(char);
 
 		switch(char)
