@@ -3656,7 +3656,14 @@ class PlayState extends MusicBeatState
 		}
 	function resetBobismad():Void
 		{
-			babyArrow.alpha = 1;
+			for (babyArrow in playerStrums)
+				{
+					babyArrow.alpha = 1;
+				}
+			for (babyArrow in strumLineNotes)
+				{
+					babyArrow.alpha = 1;
+				}
 			bobsound.pause();
 			bobmadshake.visible = false;
 			bobsound.volume = 0;
@@ -3664,9 +3671,16 @@ class PlayState extends MusicBeatState
 		}
 	function Bobismad()
 		{
-			babyArrow.alpha = 0.2;
+			for (babyArrow in playerStrums)
+				{
+					babyArrow.alpha = 0.1;
+				}
+			for (babyArrow in strumLineNotes)
+				{
+					babyArrow.alpha = 0.1;
+				}
 			bobmadshake.visible = true;
-			bobmadshake.alpha = 0.06;
+			bobmadshake.alpha = 0.95;
 			bobsound.play();
 			bobsound.volume = 1;
 			isbobmad = false;
