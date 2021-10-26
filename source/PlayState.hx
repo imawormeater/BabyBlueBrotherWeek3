@@ -3673,11 +3673,11 @@ class PlayState extends MusicBeatState
 		{
 			for (babyArrow in playerStrums)
 				{
-					babyArrow.alpha = 0.02;
+					babyArrow.alpha = 0.05;
 				}
 			for (babyArrow in strumLineNotes)
 				{
-					babyArrow.alpha = 0.02;
+					babyArrow.alpha = 0.05;
 				}
 			bobmadshake.visible = true;
 			bobmadshake.alpha = 0.95;
@@ -3777,7 +3777,7 @@ class PlayState extends MusicBeatState
 	{
 		babaPopup.visible = true;
 		babaPopup.animation.play('baba');
-		new FlxTimer().start(0.8 , function(tmr:FlxTimer)
+		new FlxTimer().start(1.4 , function(tmr:FlxTimer)
 		{
 			babaPopup.destroy();
 		});

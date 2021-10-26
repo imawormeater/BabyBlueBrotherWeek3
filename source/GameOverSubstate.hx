@@ -11,7 +11,7 @@ class GameOverSubstate extends MusicBeatSubstate
 {
 	var bf:Boyfriend;
 	var camFollow:FlxObject;
-
+	var normalBF:Bool = true;
 	var stageSuffix:String = "";
 
 	public function new(x:Float, y:Float)
@@ -24,6 +24,8 @@ class GameOverSubstate extends MusicBeatSubstate
 				stageSuffix = '-pixel';
 				daBf = 'bf-pixel-dead';
 			case 'player-baby':
+				normalBF = false;
+				stageSuffix = '-baby';
 				daBf = 'player-baby';
 			default:
 				daBf = 'bf';
@@ -40,7 +42,15 @@ class GameOverSubstate extends MusicBeatSubstate
 		add(camFollow);
 
 		FlxG.sound.play(Paths.sound('fnf_loss_sfx' + stageSuffix));
-		Conductor.changeBPM(100);
+		if (daBf == 'player-baby')
+		{
+			Conductor.changeBPM(103);
+		}
+		else
+		{
+			Conductor.changeBPM(100);
+		}
+		
 
 		// FlxG.camera.followLerp = 1;
 		// FlxG.camera.focusOn(FlxPoint.get(FlxG.width / 2, FlxG.height / 2));
@@ -70,10 +80,15 @@ class GameOverSubstate extends MusicBeatSubstate
 			PlayState.loadRep = false;
 		}
 
-		if (bf.animation.curAnim.name == 'firstDeath' && bf.animation.curAnim.curFrame == 12)
+		if (bf.animation.curAnim.name == 'firstDeath' && bf.animation.curAnim.curFrame == 12 && normalBF)
 		{
 			FlxG.camera.follow(camFollow, LOCKON, 0.01);
 		}
+		if (bf.animation.curAnim.name == 'firstDeath' && bf.animation.curAnim.curFrame == 16 && !normalBF)
+		{
+			FlxG.camera.follow(camFollow, LOCKON, 0.01);
+		}
+	
 
 		if (bf.animation.curAnim.name == 'firstDeath' && bf.animation.curAnim.finished)
 		{
