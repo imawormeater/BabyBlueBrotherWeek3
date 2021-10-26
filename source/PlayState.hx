@@ -166,6 +166,7 @@ class PlayState extends MusicBeatState
 
 	var limo:FlxSprite;
 	var goblinDeath:FlxSprite;
+	var babaPopup:FlxSprite;
 	var grpLimoDancers:FlxTypedGroup<BackgroundDancer>;
 	var bobmadshake:FlxSprite;
 	var bobsound:FlxSound;
@@ -825,6 +826,14 @@ class PlayState extends MusicBeatState
 					phloxsign.scrollFactor.set(0.9, 0.9);
 					phloxsign.active = false;
 					add(phloxsign);
+
+					var babaTex = Paths.getSparrowAtlas('BABA');
+					babaPopup = new FlxSprite(-30, -30);
+					babaPopup.frames = babaTex;
+					babaPopup.animation.addByPrefix('baba', "BABA!", 15);
+					babaPopup.antialiasing = true;
+					babaPopup.scrollFactor.set(0, 0);
+					babaPopup.visible = false;
 				}
 			default:
 			{
@@ -1317,6 +1326,8 @@ class PlayState extends MusicBeatState
 		{
 			case 'dream':
 				add(bobmadshake);
+			case 'phlox':
+				add(babaPopup);
 		}
 
 		super.create();
@@ -4201,6 +4212,13 @@ class PlayState extends MusicBeatState
 				{
 					switch (curStep)
 					{
+						case 10:
+							babaPopup.visible = true;
+                            babaPopup.animation.play('baba');
+                            new FlxTimer().start(0.8 , function(tmr:FlxTimer)
+                            {
+                                babaPopup.destroy();
+                            });
 						case 128:
 							dadSinging = false;
 							dadAgainSinging = true;

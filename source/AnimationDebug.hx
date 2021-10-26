@@ -82,6 +82,12 @@ class AnimationDebug extends FlxState
 		super.create();
 	}
 
+	function loadJson(song:String):Void
+		{
+			PlayState.SONG = Song.loadFromJson(song.toLowerCase(), song.toLowerCase());
+			LoadingState.loadAndSwitchState(new ChartingState());
+		}
+
 	function genBoyOffsets(pushList:Bool = true):Void
 	{
 		var daLoop:Int = 0;
@@ -191,9 +197,9 @@ class AnimationDebug extends FlxState
 		}
 
 		super.update(elapsed);
-		if(FlxG.keys.pressed.ENTER)
-			{
-				FlxG.switchState(new StoryMenuState());
-			}
+		if (FlxG.keys.justPressed.ENTER)
+		{
+			LoadingState.loadAndSwitchState(new MainMenuState());
+		}
 	}
 }

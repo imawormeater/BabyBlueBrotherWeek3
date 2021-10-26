@@ -471,17 +471,25 @@ class Character extends FlxSprite
 				animation.addByPrefix('singRIGHTmiss', 'leftmiss instance 1', 24, false);
 				animation.addByPrefix('singDOWNmiss', 'downmiss instance 1', 24, false);
 
+				animation.addByPrefix('firstDeath', 'babydie instance 1', 24, false);
+				animation.addByPrefix('deathLoop', 'deathloop instance 1', 24, true);
+				animation.addByPrefix('deathConfirm', 'death confirm instance 1', 24, false);
+				
+
 				addOffset('idle', -5);
 				addOffset("singUP", -5, 60);
 				addOffset("singRIGHT", -19, 4);
 				addOffset("singLEFT", 147, -17);
-				//addOffset("singRIGHT", -19, 4);
-				//addOffset("singLEFT", 147, -17);
 				addOffset("singDOWN", 37, -74);
 				addOffset("singUPmiss", -1, 53);
 				addOffset("singRIGHTmiss", 28, 2);
 				addOffset("singLEFTmiss", 146, -16);
 				addOffset("singDOWNmiss", 52, -84);
+				
+
+				addOffset('firstDeath', 37, 11);
+				addOffset('deathLoop', 24, 4);
+				addOffset('deathConfirm', 27, -252);
 
 				playAnim('idle');
 
@@ -841,7 +849,7 @@ class Character extends FlxSprite
 
 	override function update(elapsed:Float)
 	{
-		if (!curCharacter.startsWith('bf'))
+		if (!curCharacter.startsWith('bf') && !curCharacter.startsWith('player-baby'))
 		{
 			if (animation.curAnim.name.startsWith('sing'))
 			{

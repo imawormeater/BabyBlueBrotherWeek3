@@ -20,7 +20,7 @@ class GameOverState extends FlxTransitionableState
 		bfX = x;
 		bfY = y;
 	}
-
+	//I HAVE AIDS
 	override function create()
 	{
 			var loser:FlxSprite = new FlxSprite(100, 100);
@@ -29,8 +29,15 @@ class GameOverState extends FlxTransitionableState
 			loser.animation.addByPrefix('lose', 'lose', 24, false);
 			loser.animation.play('lose');
 			add(loser);
-
-		var bf:Boyfriend = new Boyfriend(bfX, bfY);
+		if(PlayState.SONG.toLowerCase() == 'baby-bob')
+		{
+			var bf:Boyfriend = new Boyfriend(bfX, bfY, 'player-baby');
+			//var bf:Boyfriend = new Boyfriend(bfX, bfY);
+		}
+		else
+		{
+			var bf:Boyfriend = new Boyfriend(bfX, bfY);
+		}
 		// bf.scrollFactor.set();
 		add(bf);
 		bf.playAnim('firstDeath');
