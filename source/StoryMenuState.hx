@@ -27,9 +27,9 @@ class StoryMenuState extends MusicBeatState
 		['Tutorial'],
 		['Nap-Time', 'Kidz-Bop', 'Baby-Blue'],
 		['Temper-Tantrum', 'Babys-Revenge', 'Un-Adieu', 'Trackstar'],
-		['Baby-Bob', 'Just-Like-You']
+		['Baby-Bob', 'Just-Like-You', 'Insignificance']
 	];
-	var curDifficulty:Int = 1;
+	var curDifficulty:Int = 2;
 
 	public static var weekUnlocked:Array<Bool> = [true, true, true, true, true, true, true];
 

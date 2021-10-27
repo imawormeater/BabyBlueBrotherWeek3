@@ -429,33 +429,16 @@ class Character extends FlxSprite
 				animation.addByPrefix('idle', 'baby 2 idle', 24);
 				animation.addByPrefix('singUP', 'baby 2 up', 24);
 				animation.addByPrefix('singDOWN', 'baby 2 down', 24);
-				if (isPlayer)
-				{
-					animation.addByPrefix('singLEFT', 'baby 2 right', 24);
-					animation.addByPrefix('singRIGHT', 'baby 2 sing left', 24);
-				}
-				else
-				{
-					// Need to be flipped! REDO THIS LATER!
-					animation.addByPrefix('singLEFT', 'baby 2 sing left', 24);
-					animation.addByPrefix('singRIGHT', 'baby 2 right', 24);
-				}
-				if (isPlayer)
-				{
-					addOffset('idle');
-					addOffset("singUP", 34, 50);
-					addOffset("singRIGHT", -28, -16);
-					addOffset("singLEFT", 137, 3);
-					addOffset("singDOWN", 8, -77);
-				}
-				else
-				{
-					addOffset('idle');
-					addOffset("singUP", 34, 50);
-					addOffset("singRIGHT", 137, -16);
-					addOffset("singLEFT", -28, 3);
-					addOffset("singDOWN", 8, -77);
-				}
+				// Need to be flipped! REDO THIS LATER!
+				animation.addByPrefix('singLEFT', 'baby 2 sing left', 24);
+				animation.addByPrefix('singRIGHT', 'baby 2 right', 24);
+
+				addOffset('idle');
+				addOffset("singUP", 34, 50);
+				addOffset("singRIGHT", -28, -16);
+				addOffset("singLEFT", 137, 3);
+				addOffset("singDOWN", 8, -77);
+			
 			
 				playAnim('idle');
 			case 'player-baby':
