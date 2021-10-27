@@ -8,5 +8,5 @@ Trackstar:running-goblin:3
 Gametoons:gametoons:4
 Baby-Bob:bob:5
 Just-Like-You:bob-ron:5
-Insignificance:bob-ron:5
+Insignificance:bobcreature:5
 Kitty:baby:4

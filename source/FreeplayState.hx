@@ -9,6 +9,7 @@ import flixel.math.FlxMath;
 import flixel.text.FlxText;
 import flixel.util.FlxColor;
 import lime.utils.Assets;
+import WiggleEffect.WiggleEffectType;
 
 
 #if windows
@@ -29,6 +30,7 @@ class FreeplayState extends MusicBeatState
 	var diffText:FlxText;
 	var lerpScore:Int = 0;
 	var intendedScore:Int = 0;
+	var wiggleShit:WiggleEffect = new WiggleEffect();
 
 	private var grpSongs:FlxTypedGroup<Alphabet>;
 	private var curPlaying:Bool = false;
@@ -69,6 +71,11 @@ class FreeplayState extends MusicBeatState
 		// LOAD CHARACTERS
 
 		var bg:FlxSprite = new FlxSprite().loadGraphic(Paths.image('menuBGBlue'));
+		wiggleShit.effectType = WiggleEffectType.FLAG;
+		wiggleShit.waveAmplitude = 0.1;
+		wiggleShit.waveFrequency = 2;
+		wiggleShit.waveSpeed = 1;
+		bg.shader = wiggleShit.shader;
 		add(bg);
 
 		grpSongs = new FlxTypedGroup<Alphabet>();
@@ -164,6 +171,8 @@ class FreeplayState extends MusicBeatState
 	override function update(elapsed:Float)
 	{
 		super.update(elapsed);
+
+		wiggleShit.update(elapsed);
 
 		if (FlxG.sound.music.volume < 0.7)
 		{
