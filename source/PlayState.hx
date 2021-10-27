@@ -1264,11 +1264,6 @@ class PlayState extends MusicBeatState
 				case 'kitty':
 					startCountdown();
 				case 'baby-bob':
-					var grain:FlxSprite = new FlxSprite(0, 0).loadGraphic(Paths.image('grain'));
-					grain.antialiasing = true;
-					grain.scrollFactor.set();
-					grain.active = false;
-					add(grain);
 					funnyIntro(doof);
 				case 'just-like-you':
 					dadAgain.x -= 165;
@@ -1283,6 +1278,11 @@ class PlayState extends MusicBeatState
 					boyfriendAgainExist = true;
 					funnyIntro(doof);
 				case 'insignificance':
+					var grain:FlxSprite = new FlxSprite(0, 0).loadGraphic(Paths.image('grain'));
+					grain.antialiasing = true;
+					grain.scrollFactor.set();
+					grain.active = false;
+					add(grain);
 					dadAgainExist = true;
 					boyfriendAgain.x += 165;
 					boyfriendAgain.y += 100;
@@ -1307,11 +1307,6 @@ class PlayState extends MusicBeatState
 					//startCountdown();
 				case 'baby-bob':
 					//dream
-					var grain:FlxSprite = new FlxSprite(0, 0).loadGraphic(Paths.image('grain'));
-					grain.antialiasing = true;
-					grain.scrollFactor.set();
-					grain.active = false;
-					add(grain);
 					startCountdown();
 				case 'just-like-you':
 					dadAgain.x -= 165;
@@ -1326,6 +1321,11 @@ class PlayState extends MusicBeatState
 					boyfriendAgainExist = true;
 					startCountdown();
 				case 'insignificance':
+					var grain:FlxSprite = new FlxSprite(0, 0).loadGraphic(Paths.image('grain'));
+					grain.antialiasing = true;
+					grain.scrollFactor.set();
+					grain.active = false;
+					add(grain);
 					dadAgainExist = true;
 					boyfriendAgain.x += 165;
 					boyfriendAgain.y += 100;
@@ -2145,7 +2145,7 @@ class PlayState extends MusicBeatState
 
 		if (FlxG.keys.justPressed.ENTER && startedCountdown && canPause)
 		{
-			persistentUpdate = false;
+				persistentUpdate = false;
 			persistentDraw = true;
 			paused = true;
 
