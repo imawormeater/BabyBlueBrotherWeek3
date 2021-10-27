@@ -14,8 +14,8 @@
 	<SubTexture name="bobcreature0009" x="10" y="494" width="734" height="470" frameX="-4" frameY="-1" frameWidth="745" frameHeight="475"/>
 	<SubTexture name="bobcreature0010" x="10" y="494" width="734" height="470" frameX="-4" frameY="-1" frameWidth="745" frameHeight="475"/>
 	<SubTexture name="bobcreature0011" x="10" y="494" width="734" height="470" frameX="-4" frameY="-1" frameWidth="745" frameHeight="475"/>
-	<SubTexture name="down0000" x="754" y="494" width="840" height="362" frameX="0" frameY="-51" frameWidth="840" frameHeight="416"/>
-	<SubTexture name="down0001" x="754" y="494" width="840" height="362" frameX="0" frameY="-51" frameWidth="840" frameHeight="416"/>
+	<SubTexture name="down0000" x="754" y="494" width="840" height="361" frameX="0" frameY="-52" frameWidth="840" frameHeight="416"/>
+	<SubTexture name="down0001" x="754" y="494" width="840" height="361" frameX="0" frameY="-52" frameWidth="840" frameHeight="416"/>
 	<SubTexture name="down0002" x="10" y="974" width="797" height="416" frameX="-24" frameY="0" frameWidth="840" frameHeight="416"/>
 	<SubTexture name="down0003" x="10" y="974" width="797" height="416" frameX="-24" frameY="0" frameWidth="840" frameHeight="416"/>
 	<SubTexture name="down0004" x="10" y="974" width="797" height="416" frameX="-24" frameY="0" frameWidth="840" frameHeight="416"/>

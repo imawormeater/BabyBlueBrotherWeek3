@@ -966,6 +966,9 @@ class PlayState extends MusicBeatState
 			case 'ron':
 				dad.y += 268;
 				dad.x -= 27;
+			case 'bobcreature':
+				dad.y += 278;
+				dad.x -= 70;
 		}
 
 
@@ -1279,6 +1282,14 @@ class PlayState extends MusicBeatState
 					add(boyfriendAgain);
 					boyfriendAgainExist = true;
 					funnyIntro(doof);
+				case 'insignificance':
+					dadAgainExist = true;
+					boyfriendAgain.x += 165;
+					boyfriendAgain.y += 100;
+					boyfriendAgain = new Boyfriend(boyfriendAgain.x, boyfriendAgain.y, 'player-baby');
+					add(boyfriendAgain);
+					boyfriendAgainExist = true;
+					startCountdown();
 				default:
 					startCountdown();
 			}
@@ -1307,6 +1318,14 @@ class PlayState extends MusicBeatState
 					dadAgain.y += 350;
 					dadAgain = new Character(dadAgain.x, dadAgain.y, 'ron');
 					add(dadAgain);
+					dadAgainExist = true;
+					boyfriendAgain.x += 165;
+					boyfriendAgain.y += 100;
+					boyfriendAgain = new Boyfriend(boyfriendAgain.x, boyfriendAgain.y, 'player-baby');
+					add(boyfriendAgain);
+					boyfriendAgainExist = true;
+					startCountdown();
+				case 'insignificance':
 					dadAgainExist = true;
 					boyfriendAgain.x += 165;
 					boyfriendAgain.y += 100;
@@ -2180,7 +2199,7 @@ class PlayState extends MusicBeatState
 			switch(SONG.player2)
 			{
 				case 'bobcreature':
-
+					iconP2.animation.play('bobdead');
 				default:
 					iconP2.animation.curAnim.curFrame = 1;
 			}
@@ -2188,7 +2207,7 @@ class PlayState extends MusicBeatState
 			switch(SONG.player2)
 			{
 				case 'bobcreature':
-					
+					iconP2.animation.play('bobcreature');
 				default:
 					iconP2.animation.curAnim.curFrame = 0;
 			}
@@ -3372,7 +3391,8 @@ class PlayState extends MusicBeatState
 				{
 					if (boyfriend.animation.curAnim.name.startsWith('sing') && !boyfriend.animation.curAnim.name.endsWith('miss'))
 						boyfriend.playAnim('idle');
-						boyfriendAgain.playAnim('idle');
+						if(boyfriendSigning && !boyfriendAgainSinging)
+							boyfriendAgain.playAnim('idle');
 					
 				}
 		 
