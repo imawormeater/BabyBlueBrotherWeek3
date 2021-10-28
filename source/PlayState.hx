@@ -4414,7 +4414,7 @@ class PlayState extends MusicBeatState
 					case 948:
 						boyfriendSigning = true;
 						boyfriendAgainSinging = true;
-					case 1183
+					case 1183:
 						//goblins turn
 						boyfriendSigning = false;
 						boyfriendAgainSinging = false;
