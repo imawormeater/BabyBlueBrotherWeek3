@@ -299,7 +299,8 @@ class StoryMenuState extends MusicBeatState
 			}
 			if (curWeek == 3) {
 				new FlxTimer().start(1, function(tmr:FlxTimer)
-				{
+				{	
+					PlayState.videoDialogue = 1;
 					LoadingState.loadAndSwitchState(new VideoState(Paths.video('bobcut1'), new PlayState()));
 				});
 			}

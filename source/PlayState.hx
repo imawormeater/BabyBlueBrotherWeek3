@@ -157,6 +157,8 @@ class PlayState extends MusicBeatState
 
 	public var dialogue:Array<String> = ['dad:blah blah blah', 'bf:coolswag'];
 
+	public static var videoDialogue:Int;
+
 	var halloweenBG:FlxSprite;
 	var isHalloween:Bool = false;
 
@@ -362,7 +364,16 @@ class PlayState extends MusicBeatState
 			case 'trackstar':
 				dialogue = CoolUtil.coolTextFile(Paths.txt('trackstar/dialogue'));
 			case 'baby-bob':
-				dialogue = CoolUtil.coolTextFile(Paths.txt('baby-bob/dialogue'));
+				trace(videoDialogue);
+				if(videoDialogue == 1)
+				{
+					dialogue = CoolUtil.coolTextFile(Paths.txt('baby-bob/dialogue'));
+				}
+				//this is such a bandaid fix lol
+				if(videoDialogue == 3)
+				{
+					dialogue = CoolUtil.coolTextFile(Paths.txt('baby-bob/dialogue2'));
+				}
 			case 'just-like-you':
 				dialogue = CoolUtil.coolTextFile(Paths.txt('just-like-you/dialogue'));
 				//retweet if your a child rapist :)

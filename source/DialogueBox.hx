@@ -23,6 +23,7 @@ class DialogueBox extends FlxSpriteGroup
 	var dialogue:Alphabet;
 	var dialogueList:Array<String> = [];
 
+
 	// SECOND DIALOGUE FOR THE PIXEL SHIT INSTEAD???
 	var swagDialogue:FlxTypeText;
 
@@ -445,6 +446,36 @@ class DialogueBox extends FlxSpriteGroup
 			
 							portraitLeft.visible = true;
 							portraitLeft.animation.play('enter');
+						}
+				case 'video1':
+					swagDialogue.sounds = [FlxG.sound.load(Paths.sound('pixelText'), 1)];
+					swagDialogue.color = FlxColor.fromRGB(26, 96, 237);
+					portraitRight.visible = false;
+					if (!portraitLeft.visible)
+							{
+							portraitLeft.frames = Paths.getSparrowAtlas('dialogue/ports');
+							portraitLeft.animation.addByPrefix('enter', 'normal bob port', 24, false);
+							portraitLeft.scale.set(1.3, 1.3);
+							portraitLeft.antialiasing = true;
+							portraitLeft.updateHitbox();
+							portraitLeft.scrollFactor.set();
+							// portraitLeft.screenCenter(X);
+					
+							portraitLeft.x = box.x + 64;
+							portraitLeft.y = box.y - 196;
+					
+							portraitLeft.visible = false;
+							portraitLeft.animation.play('enter');
+							}
+					if (PlayState.videoDialogue == 1)
+						{
+							PlayState.videoDialogue += 1;
+							LoadingState.loadAndSwitchState(new VideoState(Paths.video('babycut1'), new PlayState()));
+						}
+					if (PlayState.videoDialogue == 2)
+						{
+							PlayState.videoDialogue += 1;
+							LoadingState.loadAndSwitchState(new VideoState(Paths.video('babycut2'), new PlayState()));
 						}
 
 		}
