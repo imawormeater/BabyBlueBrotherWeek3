@@ -211,7 +211,7 @@ class FreeplayState extends MusicBeatState
 			var poop:String = Highscore.formatSong(StringTools.replace(songs[curSelected].songName," ", "-").toLowerCase(), curDifficulty);
 
 			trace(poop);
-
+			FlxG.sound.music.fadeOut(2, 0, 0.8);
 			PlayState.SONG = Song.loadFromJson(poop, StringTools.replace(songs[curSelected].songName," ", "-").toLowerCase());
 			PlayState.isStoryMode = false;
 			PlayState.storyDifficulty = curDifficulty;

@@ -4433,16 +4433,13 @@ class PlayState extends MusicBeatState
 					case 799:
 						boyfriendSigning = false;
 						boyfriendAgainSinging = true;
-					case 920:
-						//FlxG.camera.fade(FlxColor.BLACK, 0.7, false, null ,true);
-						FlxG.camera.fade(FlxColor.BLACK, 0.7, false, function()
-						{
-						}, true);
 					case 928:
 						camera.flash(FlxColor.BLACK, 6.0);
 					case 948:
 						boyfriendSigning = true;
 						boyfriendAgainSinging = true;
+					case 1048:
+						camera.shake(0.03,0.7);
 					case 1183:
 						//goblins turn
 						boyfriendSigning = false;
