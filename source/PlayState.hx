@@ -108,6 +108,7 @@ class PlayState extends MusicBeatState
 	public static var gf:Character;
 	public static var boyfriend:Boyfriend;
 	public static var boyfriendAgain:Boyfriend;
+	public static var runningGoblin:Boyfriend;
 
 	public var notes:FlxTypedGroup<Note>;
 	private var unspawnNotes:Array<Note> = [];
@@ -227,6 +228,8 @@ class PlayState extends MusicBeatState
 	var dadSinging:Bool = true;
 	var boyfriendAgainSinging:Bool = false;
 	var boyfriendAgainExist:Bool = false;
+	var runningGoblinSinging:Bool = false;
+	var runningGoblinExist:Bool = false;
 	var boyfriendSigning:Bool =true;
 
 
@@ -841,7 +844,7 @@ class PlayState extends MusicBeatState
 					var babaTex = Paths.getSparrowAtlas('BABA');
 					babaPopup = new FlxSprite(-30, -30);
 					babaPopup.frames = babaTex;
-					babaPopup.animation.addByPrefix('baba', "BABA!", 15);
+					babaPopup.animation.addByPrefix('baba', "BABA!", 23);
 					babaPopup.antialiasing = true;
 					babaPopup.scrollFactor.set(0, 0);
 					babaPopup.visible = false;
@@ -986,6 +989,7 @@ class PlayState extends MusicBeatState
 		
 		boyfriend = new Boyfriend(770, 450, SONG.player1);
 		boyfriendAgain = new Boyfriend(770, 450, SONG.player1);
+		runningGoblin = new Boyfriend(770, 450, SONG.player1);
 
 		// REPOSITIONING PER STAGE
 		switch (curStage)
@@ -3402,6 +3406,8 @@ class PlayState extends MusicBeatState
 						boyfriend.playAnim('idle');
 						if(boyfriendSigning && !boyfriendAgainSinging)
 							boyfriendAgain.playAnim('idle');
+						runningGoblin.playAnim('idle');
+						
 					
 				}
 		 
@@ -3454,21 +3460,29 @@ class PlayState extends MusicBeatState
 						boyfriend.playAnim('singLEFTmiss', true);
 					if(boyfriendAgainSinging && boyfriendAgainExist)
 						boyfriendAgain.playAnim('singLEFTmiss', true);
+					if(runningGoblinSinging)
+						runningGoblin.playAnim('singLEFTmiss', true);
 				case 1:
 					if(boyfriendSigning)
 						boyfriend.playAnim('singDOWNmiss', true);
 					if(boyfriendAgainSinging && boyfriendAgainExist)
 						boyfriendAgain.playAnim('singDOWNmiss', true);
+					if(runningGoblinSinging)
+						runningGoblin.playAnim('singDOWNmiss', true);
 				case 2:
 					if(boyfriendSigning)
 						boyfriend.playAnim('singUPmiss', true);
 					if(boyfriendAgainSinging && boyfriendAgainExist)
 						boyfriendAgain.playAnim('singUPmiss', true);
+					if(runningGoblinSinging)
+						runningGoblin.playAnim('singUPmiss', true);
 				case 3:
 					if(boyfriendSigning)
 						boyfriend.playAnim('singRIGHTmiss', true);
 					if(boyfriendAgainSinging && boyfriendAgainExist)
 						boyfriendAgain.playAnim('singRIGHTmiss', true);
+					if(runningGoblinSinging)
+						runningGoblin.playAnim('singRIGHTmiss', true);
 
 			}
 
@@ -3618,21 +3632,29 @@ class PlayState extends MusicBeatState
 								boyfriend.playAnim('singUP', true);
 							if(boyfriendAgainSinging)
 								boyfriendAgain.playAnim('singUP', true);
+							if(runningGoblinSinging)
+								runningGoblin.playAnim('singUP', true);
 						case 3:
 							if(boyfriendSigning)
 								boyfriend.playAnim('singRIGHT', true);
 							if(boyfriendAgainSinging)
 								boyfriendAgain.playAnim('singRIGHT', true);
+							if(runningGoblinSinging)
+								runningGoblin.playAnim('singRIGHT', true);
 						case 1:
 							if(boyfriendSigning)
 								boyfriend.playAnim('singDOWN', true);
 							if(boyfriendAgainSinging)
 								boyfriendAgain.playAnim('singDOWN', true);
+							if(runningGoblinSinging)
+								runningGoblin.playAnim('singDOWN', true);
 						case 0:
 							if(boyfriendSigning)
 								boyfriend.playAnim('singLEFT', true);
 							if(boyfriendAgainSinging)
 								boyfriendAgain.playAnim('singLEFT', true);
+							if(runningGoblinSinging)
+								runningGoblin.playAnim('singLEFT', true);
 					}
 		
 					#if windows
@@ -3818,7 +3840,7 @@ class PlayState extends MusicBeatState
 	{
 		babaPopup.visible = true;
 		babaPopup.animation.play('baba');
-		new FlxTimer().start(1.4 , function(tmr:FlxTimer)
+		new FlxTimer().start(1 , function(tmr:FlxTimer)
 		{
 			babaPopup.destroy();
 		});
@@ -4382,7 +4404,7 @@ class PlayState extends MusicBeatState
 			{
 				switch (curStep)
 				{
-					case 1175:
+					case 1174:
 						babaFrontPopup();
 				}
 			}		
@@ -4390,7 +4412,7 @@ class PlayState extends MusicBeatState
 			{
 				switch (curStep)
 				{
-					case 140:
+					case 10:
 						boyfriendSigning = true;
 						boyfriendAgainSinging = true;
 					case 543:
@@ -4411,13 +4433,22 @@ class PlayState extends MusicBeatState
 					case 799:
 						boyfriendSigning = false;
 						boyfriendAgainSinging = true;
+					case 920:
+						//FlxG.camera.fade(FlxColor.BLACK, 0.7, false, null ,true);
+						FlxG.camera.fade(FlxColor.BLACK, 0.7, false, function()
+						{
+						}, true);
+					case 928:
+						camera.flash(FlxColor.BLACK, 6.0);
 					case 948:
 						boyfriendSigning = true;
 						boyfriendAgainSinging = true;
-					case 1183
+					case 1183:
 						//goblins turn
 						boyfriendSigning = false;
 						boyfriendAgainSinging = false;
+						boyfriend.playAnim('idle');
+						boyfriendAgain.playAnim('idle');
 					case 1439:
 						boyfriendSigning = true;
 						boyfriendAgainSinging = true;
@@ -4521,6 +4552,8 @@ class PlayState extends MusicBeatState
 			boyfriend.playAnim('idle');
 			if(boyfriendAgainExist)
 				boyfriendAgain.playAnim('idle');
+			if(runningGoblinExist)
+				runningGoblin.playAnim('idle');
 		}
 		
 

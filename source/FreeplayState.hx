@@ -66,6 +66,8 @@ class FreeplayState extends MusicBeatState
 		// LOAD CHARACTERS
 
 		var bg:FlxSprite = new FlxSprite().loadGraphic(Paths.image('menuBGBlue'));
+		bg.y += -80;
+
 		wiggleShit.effectType = WiggleEffectType.FLAG;
 		wiggleShit.waveAmplitude = 0.1;
 		wiggleShit.waveFrequency = 2;
