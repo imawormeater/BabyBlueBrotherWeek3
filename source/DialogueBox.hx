@@ -64,6 +64,8 @@ class DialogueBox extends FlxSpriteGroup
 					FlxG.sound.playMusic(Paths.music('bloop'), 0.485);
 					FlxG.sound.music.fadeIn(1, 0, 0.8);
 				}
+			case 'tutorial':
+
 			case defualt:
 				if (PlayState.isStoryMode) {
 					FlxG.sound.playMusic(Paths.music('boomer'), 0.485);

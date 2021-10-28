@@ -1289,17 +1289,16 @@ class PlayState extends MusicBeatState
 					boyfriendAgainExist = true;
 					funnyIntro(doof);
 				case 'insignificance':
-					var grain:FlxSprite = new FlxSprite(0, 0).loadGraphic(Paths.image('grain'));
-					grain.antialiasing = true;
-					grain.scrollFactor.set();
-					grain.active = false;
-					add(grain);
-					dadAgainExist = true;
 					boyfriendAgain.x += 165;
 					boyfriendAgain.y += 100;
 					boyfriendAgain = new Boyfriend(boyfriendAgain.x, boyfriendAgain.y, 'player-baby');
 					add(boyfriendAgain);
 					boyfriendAgainExist = true;
+					var grain:FlxSprite = new FlxSprite(0, 0).loadGraphic(Paths.image('grain'));
+					grain.antialiasing = true;
+					grain.scrollFactor.set();
+					grain.active = false;
+					add(grain);
 					startCountdown();
 				default:
 					startCountdown();
@@ -1332,17 +1331,16 @@ class PlayState extends MusicBeatState
 					boyfriendAgainExist = true;
 					startCountdown();
 				case 'insignificance':
-					var grain:FlxSprite = new FlxSprite(0, 0).loadGraphic(Paths.image('grain'));
-					grain.antialiasing = true;
-					grain.scrollFactor.set();
-					grain.active = false;
-					add(grain);
-					dadAgainExist = true;
 					boyfriendAgain.x += 165;
 					boyfriendAgain.y += 100;
 					boyfriendAgain = new Boyfriend(boyfriendAgain.x, boyfriendAgain.y, 'player-baby');
 					add(boyfriendAgain);
 					boyfriendAgainExist = true;
+					var grain:FlxSprite = new FlxSprite(0, 0).loadGraphic(Paths.image('grain'));
+					grain.antialiasing = true;
+					grain.scrollFactor.set();
+					grain.active = false;
+					add(grain);
 					startCountdown();
 				default:
 					startCountdown();
@@ -4386,6 +4384,43 @@ class PlayState extends MusicBeatState
 				{
 					case 1175:
 						babaFrontPopup();
+				}
+			}		
+		if (curSong.toLowerCase() == 'insignificance')
+			{
+				switch (curStep)
+				{
+					case 140:
+						boyfriendSigning = true;
+						boyfriendAgainSinging = true;
+					case 543:
+						boyfriendSigning = true;
+						boyfriendAgainSinging = false;
+					case 575:
+						boyfriendSigning = false;
+						boyfriendAgainSinging = true;
+					case 607:
+						boyfriendSigning = true;
+						boyfriendAgainSinging = true;
+					case 671:
+						boyfriendSigning = true;
+						boyfriendAgainSinging = false;
+					case 735:
+						boyfriendSigning = true;
+						boyfriendAgainSinging = true;
+					case 799:
+						boyfriendSigning = false;
+						boyfriendAgainSinging = true;
+					case 948:
+						boyfriendSigning = true;
+						boyfriendAgainSinging = true;
+					case 1183
+						//goblins turn
+						boyfriendSigning = false;
+						boyfriendAgainSinging = false;
+					case 1439:
+						boyfriendSigning = true;
+						boyfriendAgainSinging = true;
 				}
 			}
 		// yes this updates every step.
