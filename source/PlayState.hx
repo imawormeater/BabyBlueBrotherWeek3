@@ -2953,7 +2953,16 @@ class PlayState extends MusicBeatState
 					if (tempSong == 'babys-revenge') 
 					{
 						LoadingState.loadAndSwitchState(new VideoState(Paths.video('babycut2'), new PlayState()));
-					} else 
+					} 
+					if (tempSong == 'baby-bob') 
+					{
+						LoadingState.loadAndSwitchState(new VideoState(Paths.video('bobcut2'), new PlayState()));
+					} 
+					if (tempSong == 'just-like-you') 
+					{
+						LoadingState.loadAndSwitchState(new VideoState(Paths.video('bobcut3'), new PlayState()));
+					} 
+					else 
 					{
 						LoadingState.loadAndSwitchState(new PlayState());
 					}
