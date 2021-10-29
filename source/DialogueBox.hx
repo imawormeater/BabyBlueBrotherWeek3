@@ -78,9 +78,18 @@ class DialogueBox extends FlxSpriteGroup
 					FlxG.sound.music.fadeIn(1, 0, 0.8);
 				}		
 			case 'insignificance':
-				if (PlayState.isStoryMode) {
-					FlxG.sound.playMusic(Paths.music('bobdialogue'), 0.485);
-					FlxG.sound.music.fadeIn(1, 0, 0.8);
+				if (PlayState.isStoryMode) 
+				{
+					if (videoDialogue == 1)
+					{
+						FlxG.sound.playMusic(Paths.music('bobdialogue'), 0.485);
+						FlxG.sound.music.fadeIn(1, 0, 0.8);
+					}
+					else
+					{
+						FlxG.sound.playMusic(Paths.music('bobcreature'), 0.485);
+						FlxG.sound.music.fadeIn(1, 0, 0.8);
+					}
 				}
 			default:
 				if (PlayState.isStoryMode) {
