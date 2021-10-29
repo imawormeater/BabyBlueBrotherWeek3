@@ -2694,30 +2694,43 @@ class PlayState extends MusicBeatState
 						switch (Math.abs(daNote.noteData))
 						{
 							//multiple dad singing code thing
-							if (curSong.toLowerCase() == 'insignificance')
-							{
-								health -= 0.01;
-							}
 							case 2:
 								if (dadSinging)
 									dad.playAnim('singUP' + altAnim, true);
 								if (dadAgainSinging)
 									dadAgain.playAnim('singUP' + altAnim, true);
+								if (curSong.toLowerCase() == "insignificance")
+									{
+										health -= 0.01;
+									}
+								
 							case 3:
 								if (dadSinging)
 									dad.playAnim('singRIGHT' + altAnim, true);
 								if (dadAgainSinging)
 									dadAgain.playAnim('singRIGHT' + altAnim, true);
+								if (curSong.toLowerCase() == "insignificance")
+									{
+										health -= 0.01;
+									}
 							case 1:
 								if (dadSinging)
 									dad.playAnim('singDOWN' + altAnim, true);
 								if (dadAgainSinging)
 									dadAgain.playAnim('singDOWN' + altAnim, true);
+								if (curSong.toLowerCase() == "insignificance")
+									{
+										health -= 0.01;
+									}
 							case 0:
 								if (dadSinging)
 									dad.playAnim('singLEFT' + altAnim, true);
 								if (dadAgainSinging)
 									dadAgain.playAnim('singLEFT' + altAnim, true);
+								if (curSong.toLowerCase() == "insignificance")
+									{
+										health -= 0.01;
+									}
 						}
 						
 						if (FlxG.save.data.cpuStrums)
