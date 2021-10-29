@@ -36,6 +36,7 @@ class DialogueBox extends FlxSpriteGroup
 
 	var handSelect:FlxSprite;
 	var bgFade:FlxSprite;
+	var noMore:Bool = false;
 
 
 	public function new(talkingRight:Bool = true, ?dialogueList:Array<String>)
@@ -214,7 +215,7 @@ class DialogueBox extends FlxSpriteGroup
 			dialogueStarted = true;
 		}
 
-		if (FlxG.keys.justPressed.ANY  && dialogueStarted == true)
+		if (FlxG.keys.justPressed.ANY  && dialogueStarted == true && !noMore)
 		{
 			remove(dialogue);
 			
@@ -464,7 +465,7 @@ class DialogueBox extends FlxSpriteGroup
 							portraitLeft.visible = true;
 							portraitLeft.animation.play('enter');
 						}
-				case 'video1':
+				case 'video':
 					swagDialogue.sounds = [FlxG.sound.load(Paths.sound('pixelText'), 1)];
 					swagDialogue.color = FlxColor.fromRGB(26, 96, 237);
 					portraitRight.visible = false;
@@ -480,19 +481,20 @@ class DialogueBox extends FlxSpriteGroup
 					
 							portraitLeft.x = box.x + 64;
 							portraitLeft.y = box.y - 196;
-					
+							noMore = true;
 							portraitLeft.visible = false;
+							box.visible = false;
 							portraitLeft.animation.play('enter');
 							}
 					if (PlayState.videoDialogue == 1)
 						{
 							PlayState.videoDialogue += 1;
-							LoadingState.loadAndSwitchState(new VideoState(Paths.video('babycut1'), new PlayState()));
+							LoadingState.loadAndSwitchState(new VideoState(Paths.video('bobcut3'), new PlayState()));
 						}
 					if (PlayState.videoDialogue == 2)
 						{
 							PlayState.videoDialogue += 1;
-							LoadingState.loadAndSwitchState(new VideoState(Paths.video('babycut2'), new PlayState()));
+							LoadingState.loadAndSwitchState(new VideoState(Paths.video('bobcut3'), new PlayState()));
 						}
 
 		}

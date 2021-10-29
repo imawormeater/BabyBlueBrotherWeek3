@@ -369,19 +369,20 @@ class PlayState extends MusicBeatState
 			case 'trackstar':
 				dialogue = CoolUtil.coolTextFile(Paths.txt('trackstar/dialogue'));
 			case 'baby-bob':
-				trace(videoDialogue);
+				dialogue = CoolUtil.coolTextFile(Paths.txt('baby-bob/dialogue2'));
+			case 'just-like-you':
+				dialogue = CoolUtil.coolTextFile(Paths.txt('just-like-you/dialogue'));
+				//retweet if your a child rapist :)
+			case 'insignificance':
 				if(videoDialogue == 1)
 				{
-					dialogue = CoolUtil.coolTextFile(Paths.txt('baby-bob/dialogue2'));
+					dialogue = CoolUtil.coolTextFile(Paths.txt('insignificance/1'));
 				}
 				//this is such a bandaid fix lol
 				if(videoDialogue == 3)
 				{
-					dialogue = CoolUtil.coolTextFile(Paths.txt('baby-bob/dialogue2'));
+					dialogue = CoolUtil.coolTextFile(Paths.txt('insignificance/2'));
 				}
-			case 'just-like-you':
-				dialogue = CoolUtil.coolTextFile(Paths.txt('just-like-you/dialogue'));
-				//retweet if your a child rapist :)
 		}
 
 		switch(SONG.stage)
@@ -1290,6 +1291,14 @@ class PlayState extends MusicBeatState
 				case 'kitty':
 					startCountdown();
 				case 'baby-bob':
+					funnyIntro(doof);
+				case 'insignificance':
+					if (videoDialogue == 1)
+						{
+							var black:FlxSprite = new FlxSprite(-100, -100).makeGraphic(FlxG.width * 2, FlxG.height * 2, FlxColor.BLACK);
+							black.scrollFactor.set();
+							add(black);
+						}
 					funnyIntro(doof);
 				case 'just-like-you':
 					dadAgain.x -= 165;
@@ -2701,7 +2710,7 @@ class PlayState extends MusicBeatState
 									dadAgain.playAnim('singUP' + altAnim, true);
 								if (curSong.toLowerCase() == "insignificance")
 									{
-										health -= 0.01;
+										health -= 0.015;
 									}
 								
 							case 3:
@@ -2711,7 +2720,7 @@ class PlayState extends MusicBeatState
 									dadAgain.playAnim('singRIGHT' + altAnim, true);
 								if (curSong.toLowerCase() == "insignificance")
 									{
-										health -= 0.01;
+										health -= 0.015;
 									}
 							case 1:
 								if (dadSinging)
@@ -2720,7 +2729,7 @@ class PlayState extends MusicBeatState
 									dadAgain.playAnim('singDOWN' + altAnim, true);
 								if (curSong.toLowerCase() == "insignificance")
 									{
-										health -= 0.01;
+										health -= 0.015;
 									}
 							case 0:
 								if (dadSinging)
@@ -2729,7 +2738,7 @@ class PlayState extends MusicBeatState
 									dadAgain.playAnim('singLEFT' + altAnim, true);
 								if (curSong.toLowerCase() == "insignificance")
 									{
-										health -= 0.01;
+										health -= 0.015;
 									}
 						}
 						
@@ -2895,6 +2904,10 @@ class PlayState extends MusicBeatState
 					{
 						FlxG.switchState(new EndState());
 					}
+					if (curSong.toLowerCase() == "insignificance")
+						{
+							LoadingState.loadAndSwitchState(new VideoState(Paths.video('bobcut4'), new StoryMenuState()));
+						}
 					else
 					{
 						FlxG.sound.playMusic(Paths.music('menu_music_1'));
@@ -2956,8 +2969,6 @@ class PlayState extends MusicBeatState
 							LoadingState.loadAndSwitchState(new VideoState(Paths.video('babycut2'), new PlayState()));
 						case "baby-bob":
 							LoadingState.loadAndSwitchState(new VideoState(Paths.video('bobcut2'), new PlayState()));
-						case "just-like-you":
-							LoadingState.loadAndSwitchState(new VideoState(Paths.video('bobcut3'), new PlayState()));
 						default:
 							LoadingState.loadAndSwitchState(new PlayState());
 					}
