@@ -202,6 +202,8 @@ class PlayState extends MusicBeatState
 	public static var repPresses:Int = 0;
 	public static var repReleases:Int = 0;
 
+	public static var goblinTurn:Bool = false;
+
 	public static var timeCurrently:Float = 0;
 	public static var timeCurrentlyR:Float = 0;
 	
@@ -1189,6 +1191,15 @@ class PlayState extends MusicBeatState
 		if(FlxG.save.data.botplay && !loadRep) add(botPlayState);
 
 		iconP1 = new HealthIcon(SONG.player1, true);
+		switch(curSong.toLowerCase())
+		{
+			case 'just-like-you':
+				iconP1.animation.play('bf-baby');
+			case 'insignificance':
+				iconP1.animation.play('bf-baby');
+			default:
+				iconP1.animation.play(SONG.player1);
+		}
 		iconP1.y = healthBar.y - (iconP1.height / 2);
 		add(iconP1);
 
@@ -2438,7 +2449,7 @@ class PlayState extends MusicBeatState
 					vocals.volume = 1;
 			}
 
-			if (PlayState.SONG.notes[Std.int(curStep / 16)].mustHitSection && camFollow.x != boyfriend.getMidpoint().x - 100)
+			if (PlayState.SONG.notes[Std.int(curStep / 16)].mustHitSection && camFollow.x != boyfriend.getMidpoint().x - 100 && !goblinTurn)
 			{
 				var offsetX = 0;
 				var offsetY = 0;
@@ -2683,6 +2694,10 @@ class PlayState extends MusicBeatState
 						switch (Math.abs(daNote.noteData))
 						{
 							//multiple dad singing code thing
+							if (curSong.toLowerCase() == 'insignificance')
+							{
+								health -= 0.01;
+							}
 							case 2:
 								if (dadSinging)
 									dad.playAnim('singUP' + altAnim, true);
@@ -4434,19 +4449,36 @@ class PlayState extends MusicBeatState
 						boyfriendSigning = false;
 						boyfriendAgainSinging = true;
 					case 928:
+						defaultCamZoom = 1.45;
 						camera.flash(FlxColor.BLACK, 6.0);
 					case 948:
 						boyfriendSigning = true;
 						boyfriendAgainSinging = true;
 					case 1048:
 						camera.shake(0.03,0.7);
+						defaultCamZoom = 1.05;
+						
+					case 1178:
+						runningGoblin.x -= 200;
+						runningGoblin.y += 170;
+						runningGoblin = new Boyfriend(runningGoblin.x, runningGoblin.y, 'player-goblin');
+						add(runningGoblin);
+						runningGoblinExist = true;
+						iconP1.animation.play('bf-baby-goblin');
 					case 1183:
 						//goblins turn
 						boyfriendSigning = false;
 						boyfriendAgainSinging = false;
+						runningGoblinSinging = true;
 						boyfriend.playAnim('idle');
 						boyfriendAgain.playAnim('idle');
+						defaultCamZoom = 1.10;
+						//look at all this code that is useless :|
+						camFollow.setPosition(runningGoblin.getMidpoint().x, runningGoblin.getMidpoint().y);
 					case 1439:
+						FlxG.camera.follow(camFollow, LOCKON, 0.04 * (30 / (cast (Lib.current.getChildAt(0), Main)).getFPS()));
+						camFollow.setPosition(boyfriend.getMidpoint().x - 100, boyfriend.getMidpoint().y - 100);
+						defaultCamZoom = 1.05;
 						boyfriendSigning = true;
 						boyfriendAgainSinging = true;
 				}
