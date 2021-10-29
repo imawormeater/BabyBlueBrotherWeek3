@@ -372,7 +372,7 @@ class PlayState extends MusicBeatState
 				trace(videoDialogue);
 				if(videoDialogue == 1)
 				{
-					dialogue = CoolUtil.coolTextFile(Paths.txt('baby-bob/dialogue'));
+					dialogue = CoolUtil.coolTextFile(Paths.txt('baby-bob/dialogue2'));
 				}
 				//this is such a bandaid fix lol
 				if(videoDialogue == 3)
@@ -2950,21 +2950,16 @@ class PlayState extends MusicBeatState
 					PlayState.SONG = Song.loadFromJson(PlayState.storyPlaylist[0].toLowerCase() + difficulty, PlayState.storyPlaylist[0]);
 					FlxG.sound.music.stop();
 
-					if (tempSong == 'babys-revenge') 
+					switch(tempSong)
 					{
-						LoadingState.loadAndSwitchState(new VideoState(Paths.video('babycut2'), new PlayState()));
-					} 
-					if (tempSong == 'baby-bob') 
-					{
-						LoadingState.loadAndSwitchState(new VideoState(Paths.video('bobcut2'), new PlayState()));
-					} 
-					if (tempSong == 'just-like-you') 
-					{
-						LoadingState.loadAndSwitchState(new VideoState(Paths.video('bobcut3'), new PlayState()));
-					} 
-					else 
-					{
-						LoadingState.loadAndSwitchState(new PlayState());
+						case "babys-revenge":
+							LoadingState.loadAndSwitchState(new VideoState(Paths.video('babycut2'), new PlayState()));
+						case "baby-bob":
+							LoadingState.loadAndSwitchState(new VideoState(Paths.video('bobcut2'), new PlayState()));
+						case "just-like-you":
+							LoadingState.loadAndSwitchState(new VideoState(Paths.video('bobcut3'), new PlayState()));
+						default:
+							LoadingState.loadAndSwitchState(new PlayState());
 					}
 				}
 			}
