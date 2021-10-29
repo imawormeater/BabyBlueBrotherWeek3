@@ -70,6 +70,21 @@ class DialogueBox extends FlxSpriteGroup
 				if (PlayState.isStoryMode) {
 					FlxG.sound.playMusic(Paths.music('boomer'), 0.485);
 					FlxG.sound.music.fadeIn(1, 0, 0.8);
+				}			
+			case 'baby-bob':
+				if (PlayState.isStoryMode) {
+					FlxG.sound.playMusic(Paths.music('bobdialogue'), 0.485);
+					FlxG.sound.music.fadeIn(1, 0, 0.8);
+				}			
+			case 'just-like-you':
+				if (PlayState.isStoryMode) {
+					FlxG.sound.playMusic(Paths.music('bobdialogue'), 0.485);
+					FlxG.sound.music.fadeIn(1, 0, 0.8);
+				}		
+			case 'insignificance':
+				if (PlayState.isStoryMode) {
+					FlxG.sound.playMusic(Paths.music('bobdialogue'), 0.485);
+					FlxG.sound.music.fadeIn(1, 0, 0.8);
 				}
 		}
 
