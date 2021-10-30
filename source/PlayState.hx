@@ -152,6 +152,7 @@ class PlayState extends MusicBeatState
 	private var camGame:FlxCamera;
 
 	public static var offsetTesting:Bool = false;
+	public static var noBlackShit:Bool = false;
 
 	var notesHitArray:Array<Date> = [];
 	var currentFrames:Int = 0;
@@ -1292,14 +1293,6 @@ class PlayState extends MusicBeatState
 					startCountdown();
 				case 'baby-bob':
 					funnyIntro(doof);
-				case 'insignificance':
-					if (videoDialogue == 1)
-						{
-							var black:FlxSprite = new FlxSprite(-100, -100).makeGraphic(FlxG.width * 2, FlxG.height * 2, FlxColor.BLACK);
-							black.scrollFactor.set();
-							add(black);
-						}
-					funnyIntro(doof);
 				case 'just-like-you':
 					dadAgain.x -= 165;
 					dadAgain.y += 350;
@@ -1313,17 +1306,33 @@ class PlayState extends MusicBeatState
 					boyfriendAgainExist = true;
 					funnyIntro(doof);
 				case 'insignificance':
-					boyfriendAgain.x += 165;
-					boyfriendAgain.y += 100;
-					boyfriendAgain = new Boyfriend(boyfriendAgain.x, boyfriendAgain.y, 'player-baby');
-					add(boyfriendAgain);
-					boyfriendAgainExist = true;
-					var grain:FlxSprite = new FlxSprite(0, 0).loadGraphic(Paths.image('grain'));
-					grain.antialiasing = true;
-					grain.scrollFactor.set();
-					grain.active = false;
-					add(grain);
-					startCountdown();
+					if (videoDialogue == 1)
+						{
+							var black:FlxSprite = new FlxSprite(-100, -100).makeGraphic(FlxG.width * 2, FlxG.height * 2, FlxColor.BLACK);
+							black.scrollFactor.set();
+							add(black);
+							healthBar.visible = false;
+							healthBarBG.visible = false;
+							iconP1.visible = false;
+							iconP2.visible = false;
+							scoreTxt.visible = false;
+							funnyIntro(doof);
+						}
+					else
+						{
+							boyfriendAgain.x += 165;
+							boyfriendAgain.y += 100;
+							boyfriendAgain = new Boyfriend(boyfriendAgain.x, boyfriendAgain.y, 'player-baby');
+							add(boyfriendAgain);
+							boyfriendAgainExist = true;
+							var grain:FlxSprite = new FlxSprite(0, 0).loadGraphic(Paths.image('grain'));
+							grain.antialiasing = true;
+							grain.scrollFactor.set();
+							grain.active = false;
+							add(grain);
+							funnyIntro(doof);
+						}
+					
 				default:
 					startCountdown();
 			}
@@ -2248,7 +2257,7 @@ class PlayState extends MusicBeatState
 		/* if (FlxG.keys.justPressed.NINE)
 			FlxG.switchState(new Charting()); */
 
-		//#if debug
+		#if debug
 		if (FlxG.keys.justPressed.EIGHT)
 		{
 			FlxG.switchState(new AnimationDebug(SONG.player2));
@@ -2273,7 +2282,7 @@ class PlayState extends MusicBeatState
 			#end
 		}
 
-		//#end
+		#end
 
 		if (startingSong)
 		{
@@ -3879,6 +3888,14 @@ class PlayState extends MusicBeatState
 			iconP2.animation.play(id);
 			trace('did it work, just maybe, just maybe');
 		}
+	function changeBf(id:String)
+			{                
+				var olddadx = boyfriend.x;
+				var olddady = boyfriend.y;
+				remove(boyfriend);
+				boyfriend = new Boyfriend(olddadx, olddady, id);
+				add(boyfriend);
+			}
 	function babaFrontPopup():Void
 	{
 		babaPopup.visible = true;
@@ -4509,6 +4526,9 @@ class PlayState extends MusicBeatState
 						defaultCamZoom = 1.05;
 						boyfriendSigning = true;
 						boyfriendAgainSinging = true;
+					case 1583:
+						changeBf('alien');
+						
 				}
 			}
 		// yes this updates every step.

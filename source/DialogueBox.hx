@@ -80,9 +80,10 @@ class DialogueBox extends FlxSpriteGroup
 			case 'insignificance':
 				if (PlayState.isStoryMode) 
 				{
-					if (videoDialogue == 1)
+					if (PlayState.videoDialogue == 1)
 					{
-						FlxG.sound.playMusic(Paths.music('bobdialogue'), 0.485);
+						PlayState.noBlackShit = true;
+						FlxG.sound.playMusic(Paths.music('LunchboxScary'), 0.485);
 						FlxG.sound.music.fadeIn(1, 0, 0.8);
 					}
 					else
@@ -103,12 +104,19 @@ class DialogueBox extends FlxSpriteGroup
 		bgFade.alpha = 0;
 		add(bgFade);
 
-		new FlxTimer().start(0.83, function(tmr:FlxTimer)
+		if (PlayState.noBlackShit = true)
 		{
-			bgFade.alpha += (1 / 5) * 0.7;
-			if (bgFade.alpha > 0.7)
-				bgFade.alpha = 0.7;
-		}, 5);
+			bgFade.visible = false;
+		}
+		else
+		{
+			new FlxTimer().start(0.83, function(tmr:FlxTimer)
+				{
+					bgFade.alpha += (1 / 5) * 0.7;
+					if (bgFade.alpha > 0.7)
+						bgFade.alpha = 0.7;
+				}, 5);
+		}
 
 		box = new FlxSprite(-20, 45);
 		
